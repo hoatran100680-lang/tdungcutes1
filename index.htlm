@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOBICONFIG ULTRA X</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#04020b;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:white;
+}
+
+/* Animated Background */
+
+.background{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    animation:move 10s infinite alternate;
+}
+
+.circle1{
+    width:320px;
+    height:320px;
+    background:#8f00ff55;
+    top:-120px;
+    left:-100px;
+}
+
+.circle2{
+    width:320px;
+    height:320px;
+    background:#ff006655;
+    bottom:-120px;
+    right:-100px;
+}
+
+@keyframes move{
+    from{
+        transform:translateY(0px);
+    }
+    to{
+        transform:translateY(40px);
+    }
+}
+
+/* Main */
+
+.container{
+    width:390px;
+    background:rgba(18,18,30,0.86);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:38px;
+    padding:22px;
+    backdrop-filter:blur(18px);
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 0 45px rgba(140,0,255,0.25),
+    0 0 70px rgba(255,0,120,0.15);
+}
+
+/* Header */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.logo h1{
+    font-size:34px;
+    font-weight:900;
+
+    background:linear-gradient(
+    90deg,
+    #a855ff,
+    #ff4d9d,
+    #ffffff);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.logo p{
+    color:#999;
+    margin-top:5px;
+    font-size:13px;
+}
+
+.avatar{
+    width:58px;
+    height:58px;
+    border-radius:20px;
+
+    background:linear-gradient(
+    135deg,
+    #8f00ff,
+    #ff0066);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:28px;
+
+    box-shadow:0 0 30px rgba(255,0,120,0.4);
+}
+
+/* Banner */
+
+.banner{
+    height:190px;
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8f00ff,
+    #ff0066,
+    #111);
+
+    padding:26px;
+    margin-bottom:22px;
+
+    overflow:hidden;
+    position:relative;
+}
+
+.banner::before{
+    content:'';
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.05);
+    top:-90px;
+    right:-90px;
+}
+
+.banner h2{
+    font-size:38px;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.banner p{
+    color:#eee;
+    margin-bottom:8px;
+}
+
+.banner span{
+    color:#ffe600;
+    font-weight:bold;
+}
+
+/* Feature */
+
+.feature{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.05);
+
+    border-radius:24px;
+
+    padding:16px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:16px;
+
+    transition:0.3s;
+}
+
+.feature:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 25px rgba(170,0,255,0.25);
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.icon{
+    width:62px;
+    height:62px;
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #8f00ff33,
+    #ff006633);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:28px;
+}
+
+.text h3{
+    font-size:18px;
+    margin-bottom:4px;
+}
+
+.text p{
+    color:#999;
+    font-size:13px;
+}
+
+/* Toggle */
+
+.toggle{
+    width:58px;
+    height:30px;
+    background:#333;
+    border-radius:30px;
+    position:relative;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.toggle::before{
+    content:'';
+    width:24px;
+    height:24px;
+    background:white;
+    border-radius:50%;
+
+    position:absolute;
+    top:3px;
+    left:4px;
+
+    transition:0.3s;
+}
+
+.toggle.active{
+    background:
+    linear-gradient(
+    90deg,
+    #8f00ff,
+    #ff0066);
+}
+
+.toggle.active::before{
+    left:30px;
+}
+
+/* Button */
+
+.btn{
+    width:100%;
+    height:60px;
+
+    border:none;
+    border-radius:24px;
+
+    margin-top:15px;
+
+    font-size:18px;
+    font-weight:bold;
+    color:white;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    90deg,
+    #8f00ff,
+    #ff0066);
+
+    box-shadow:
+    0 0 25px rgba(170,0,255,0.4);
+
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.03);
+}
+
+/* Status */
+
+.status{
+    text-align:center;
+    margin-top:18px;
+    color:#00ff99;
+    font-weight:bold;
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background">
+
+    <div class="circle circle1"></div>
+
+    <div class="circle circle2"></div>
+
+</div>
+
+<div class="container">
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <div class="logo">
+            <h1>MOBICONFIG</h1>
+            <p>ULTRA X FREE FIRE MENU</p>
+        </div>
+
+        <div class="avatar">
+            🔥
+        </div>
+
+    </div>
+
+    <!-- Banner -->
+
+    <div class="banner">
+
+        <h2>OB53 ULTRA</h2>
+
+        <p>FREE FIRE PREMIUM EXPERIENCE</p>
+
+        <span>FAST • SMOOTH • ULTRA FPS</span>
+
+    </div>
+
+    <!-- Feature -->
+
+    <div class="feature">
+
+        <div class="left">
+
+            <div class="icon">🎯</div>
+
+            <div class="text">
+                <h3>AIM BOOST</h3>
+                <p>Tăng hỗ trợ ngắm</p>
+            </div>
+
+        </div>
+
+        <div class="toggle active"></div>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="left">
+
+            <div class="icon">🔥</div>
+
+            <div class="text">
+                <h3>HEADSHOT+</h3>
+                <p>Tăng độ chính xác</p>
+            </div>
+
+        </div>
+
+        <div class="toggle active"></div>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="left">
+
+            <div class="icon">⚡</div>
+
+            <div class="text">
+                <h3>FPS MAX</h3>
+                <p>Tối ưu hiệu năng</p>
+            </div>
+
+        </div>
+
+        <div class="toggle active"></div>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="left">
+
+            <div class="icon">🎯</div>
+
+            <div class="text">
+                <h3>SENSI</h3>
+                <p>Nhẹ tâm & bám đầu</p>
+            </div>
+
+        </div>
+
+        <div class="toggle active"></div>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="left">
+
+            <div class="icon">🚀</div>
+
+            <div class="text">
+                <h3>SPEED X</h3>
+                <p>Tăng tốc phản hồi</p>
+            </div>
+
+        </div>
+
+        <div class="toggle active"></div>
+
+    </div>
+
+    <!-- Button -->
+
+    <button class="btn" onclick="activateMenu()">
+        KÍCH HOẠT & VÀO GAME
+    </button>
+
+    <!-- Status -->
+
+    <div class="status" id="status">
+        ✓ MENU ĐÃ KÍCH HOẠT THÀNH CÔNG
+    </div>
+
+</div>
+
+<!-- Sound Effects -->
+
+<audio id="clickSound">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_0d3f0f1e4f.mp3?filename=game-click-104721.mp3" type="audio/mp3">
+</audio>
+
+<audio id="successSound">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_401ef15f82.mp3?filename=success-fanfare-trumpets-6185.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+/* Sounds */
+
+const clickSound =
+document.getElementById("clickSound");
+
+const successSound =
+document.getElementById("successSound");
+
+/* Toggle */
+
+const toggles =
+document.querySelectorAll(".toggle");
+
+toggles.forEach(toggle => {
+
+    toggle.addEventListener("click", () => {
+
+        toggle.classList.toggle("active");
+
+        clickSound.currentTime = 0;
+        clickSound.play();
+
+    });
+
+});
+
+/* Activate */
+
+function activateMenu(){
+
+    successSound.currentTime = 0;
+    successSound.play();
+
+    document.getElementById("status")
+    .style.display = "block";
+
+    setTimeout(() => {
+
+        alert("Đang mở Free Fire...");
+
+        window.location.href =
+        "https://ffshare.garena.com/";
+
+    }, 2200);
+
+}
+
+</script>
+
+</body>
+</html>
