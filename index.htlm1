@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobiConfig Free Fire</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#050505;
+            color:white;
+            min-height:100vh;
+            padding:20px;
+            background-image:
+            radial-gradient(circle at top left,#ff6a00 0%,transparent 30%),
+            radial-gradient(circle at bottom right,#6a00ff 0%,transparent 30%);
+        }
+
+        .container{
+            max-width:420px;
+            margin:auto;
+        }
+
+        .header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:20px;
+        }
+
+        .logo h1{
+            font-size:34px;
+            background:linear-gradient(90deg,#ff8800,#ffcc00);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .logo p{
+            color:#999;
+            margin-top:5px;
+        }
+
+        .icon{
+            font-size:40px;
+        }
+
+        .banner{
+            height:180px;
+            border-radius:30px;
+            padding:25px;
+            background:linear-gradient(135deg,#ff6a00,#ff0000,#111);
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            margin-bottom:20px;
+            box-shadow:0 0 25px rgba(255,100,0,0.4);
+        }
+
+        .banner h2{
+            font-size:36px;
+            margin-bottom:10px;
+        }
+
+        .banner p{
+            color:#ddd;
+            margin-bottom:6px;
+        }
+
+        .banner span{
+            color:yellow;
+            font-weight:bold;
+        }
+
+        .card{
+            background:linear-gradient(135deg,#1a0900,#000);
+            border:1px solid rgba(255,120,0,0.3);
+            border-radius:25px;
+            padding:18px;
+            margin-bottom:15px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            box-shadow:0 0 15px rgba(255,100,0,0.15);
+        }
+
+        .left{
+            display:flex;
+            align-items:center;
+            gap:15px;
+        }
+
+        .icon-box{
+            width:60px;
+            height:60px;
+            border-radius:18px;
+            background:rgba(255,120,0,0.12);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:28px;
+        }
+
+        .text h3{
+            font-size:20px;
+            margin-bottom:5px;
+        }
+
+        .text p{
+            color:#999;
+            font-size:14px;
+        }
+
+        .switch{
+            width:55px;
+            height:30px;
+            background:#444;
+            border-radius:30px;
+            position:relative;
+            cursor:pointer;
+        }
+
+        .switch::before{
+            content:'';
+            position:absolute;
+            width:24px;
+            height:24px;
+            background:white;
+            border-radius:50%;
+            top:3px;
+            left:4px;
+            transition:0.3s;
+        }
+
+        .switch.active{
+            background:#ff7b00;
+        }
+
+        .switch.active::before{
+            left:27px;
+        }
+
+        .btn{
+            width:100%;
+            height:60px;
+            border:none;
+            border-radius:25px;
+            background:linear-gradient(90deg,#ff6a00,#ff0000);
+            color:white;
+            font-size:20px;
+            font-weight:bold;
+            cursor:pointer;
+            margin-top:10px;
+            box-shadow:0 0 20px rgba(255,80,0,0.4);
+        }
+
+        .btn:hover{
+            opacity:0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="logo">
+            <h1>FREE FIRE</h1>
+            <p>MOBICONFIG MENU</p>
+        </div>
+
+        <div class="icon">🔥</div>
+    </div>
+
+    <div class="banner">
+        <h2>VIP MENU</h2>
+        <p>TỐI ƯU FREE FIRE</p>
+        <span>FPS CAO • MƯỢT • ỔN ĐỊNH</span>
+    </div>
+
+    <!-- Feature 1 -->
+    <div class="card">
+        <div class="left">
+            <div class="icon-box">🎯</div>
+
+            <div class="text">
+                <h3>AIMLOCK</h3>
+                <p>Khóa tâm tự động</p>
+            </div>
+        </div>
+
+        <div class="switch active"></div>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="card">
+        <div class="left">
+            <div class="icon-box">🔥</div>
+
+            <div class="text">
+                <h3>AUTO HEADSHOT</h3>
+                <p>Tăng tỷ lệ headshot</p>
+            </div>
+        </div>
+
+        <div class="switch active"></div>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="card">
+        <div class="left">
+            <div class="icon-box">⚡</div>
+
+            <div class="text">
+                <h3>ANTI SHAKE</h3>
+                <p>Giảm lag FPS</p>
+            </div>
+        </div>
+
+        <div class="switch active"></div>
+    </div>
+
+    <!-- Feature 4 -->
+    <div class="card">
+        <div class="left">
+            <div class="icon-box">👁️</div>
+
+            <div class="text">
+                <h3>ESP ENEMY</h3>
+                <p>Hiển thị vị trí địch</p>
+            </div>
+        </div>
+
+        <div class="switch active"></div>
+    </div>
+
+    <!-- Feature 5 -->
+    <div class="card">
+        <div class="left">
+            <div class="icon-box">🚀</div>
+
+            <div class="text">
+                <h3>SENSI PRO</h3>
+                <p>Nhẹ tâm</p>
+            </div>
+        </div>
+
+        <div class="switch active"></div>
+    </div>
+
+    <button class="btn">
+        KÍCH HOẠT MENU
+    </button>
+
+</div>
+
+<script>
+
+    const switches = document.querySelectorAll(".switch");
+
+    switches.forEach(sw => {
+        sw.addEventListener("click", () => {
+            sw.classList.toggle("active");
+        });
+    });
+
+</script>
+
+</body>
+</html>
