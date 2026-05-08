@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>ADMIN PANEL - KEY SYSTEM</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0f172a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.panel{
+    width:500px;
+    background:#111827;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 20px #00e5ff33;
+}
+
+h2{
+    text-align:center;
+    color:#00e5ff;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:#1f2937;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00e5ff,#7c3aed);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.list{
+    margin-top:20px;
+    max-height:200px;
+    overflow:auto;
+    background:#0b1220;
+    padding:10px;
+    border-radius:10px;
+}
+
+.key-item{
+    padding:8px;
+    margin:5px 0;
+    background:#1f2937;
+    border-radius:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:14px;
+}
+
+.copy{
+    background:#00e5ff;
+    color:black;
+    border:none;
+    padding:5px 10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+
+<h2>ADMIN KEY PANEL</h2>
+
+<input type="text" id="device" placeholder="Device ID (VD: DEV123)">
+
+<select id="type">
+    <option>1 DAY</option>
+    <option>7 DAYS</option>
+    <option>30 DAYS</option>
+    <option>PERMANENT</option>
+</select>
+
+<button onclick="generateKey()">TẠO KEY</button>
+
+<div class="list" id="list"></div>
+
+</div>
+
+<script>
+
+let keys = JSON.parse(localStorage.getItem("keys")) || [];
+
+/* TẠO KEY */
+
+function createRandomKey(){
+
+    let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let key = "";
+
+    for(let i=0;i<16;i++){
+        key += chars[Math.floor(Math.random()*chars.length)];
+        if(i%4==3 && i<15) key += "-";
+    }
+
+    return key;
+}
+
+/* GENERATE */
+
+function generateKey(){
+
+    let device = document.getElementById("device").value;
+    let type = document.getElementById("type").value;
+
+    if(device == ""){
+        alert("Nhập Device ID!");
+        return;
+    }
+
+    let key = createRandomKey();
+
+    let data = {
+        key:key,
+        device:device,
+        type:type,
+        time:new Date().toLocaleString()
+    };
+
+    keys.push(data);
+
+    localStorage.setItem("keys",JSON.stringify(keys));
+
+    render();
+
+}
+
+/* RENDER LIST */
+
+function render(){
+
+    let list = document.getElementById("list");
+
+    list.innerHTML = "";
+
+    keys.forEach((k,i)=>{
+
+        list.innerHTML += `
+        <div class="key-item">
+            <div>
+                <b>${k.key}</b><br>
+                <small>${k.device} | ${k.type}</small>
+            </div>
+            <button class="copy" onclick="copyKey('${k.key}')">COPY</button>
+        </div>
+        `;
+    });
+
+}
+
+/* COPY KEY */
+
+function copyKey(key){
+
+    navigator.clipboard.writeText(key);
+
+    alert("Đã copy: " + key);
+}
+
+/* LOAD */
+
+render();
+
+</script>
+
+</body>
+</html>

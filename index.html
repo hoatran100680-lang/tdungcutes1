@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MOBICONFIG ULTRA X</title>
+
+<title>iOS Gaming Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -11,311 +14,220 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'SF Pro Display',sans-serif;
 }
 
 body{
-    background:#04020b;
-    min-height:100vh;
+    height:100vh;
+    overflow:hidden;
+    background:
+    linear-gradient(135deg,#0f172a,#020617);
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
-    color:white;
 }
 
-/* Animated Background */
+/* BACKGROUND GLOW */
 
-.background{
-    position:absolute;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-}
-
-.circle{
+.glow1,
+.glow2{
     position:absolute;
     border-radius:50%;
     filter:blur(90px);
-    animation:move 10s infinite alternate;
 }
 
-.circle1{
-    width:320px;
-    height:320px;
-    background:#8f00ff55;
-    top:-120px;
-    left:-100px;
+.glow1{
+    width:300px;
+    height:300px;
+    background:#00d4ff55;
+    top:-50px;
+    left:-50px;
 }
 
-.circle2{
-    width:320px;
-    height:320px;
-    background:#ff006655;
-    bottom:-120px;
+.glow2{
+    width:350px;
+    height:350px;
+    background:#7c3aed55;
+    bottom:-100px;
     right:-100px;
 }
 
-@keyframes move{
-    from{
-        transform:translateY(0px);
-    }
-    to{
-        transform:translateY(40px);
-    }
-}
+/* PANEL */
 
-/* Main */
-
-.container{
-    width:390px;
-    background:rgba(18,18,30,0.86);
-    border:1px solid rgba(255,255,255,0.06);
-    border-radius:38px;
-    padding:22px;
-    backdrop-filter:blur(18px);
+.panel{
     position:relative;
-    z-index:2;
-
+    width:420px;
+    padding:28px;
+    border-radius:35px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(22px);
+    border:1px solid rgba(255,255,255,0.15);
     box-shadow:
-    0 0 45px rgba(140,0,255,0.25),
-    0 0 70px rgba(255,0,120,0.15);
+    0 0 40px rgba(0,212,255,0.15),
+    inset 0 0 20px rgba(255,255,255,0.05);
+    color:white;
 }
 
-/* Header */
+/* TOP */
 
-.header{
+.top{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:22px;
+    margin-bottom:25px;
 }
 
-.logo h1{
-    font-size:34px;
-    font-weight:900;
-
-    background:linear-gradient(
-    90deg,
-    #a855ff,
-    #ff4d9d,
-    #ffffff);
-
+.logo{
+    font-size:28px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00d4ff,#7c3aed);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
-.logo p{
-    color:#999;
-    margin-top:5px;
-    font-size:13px;
+.online{
+    color:#00ff99;
+    font-size:14px;
 }
 
-.avatar{
-    width:58px;
-    height:58px;
-    border-radius:20px;
+/* INPUT */
 
-    background:linear-gradient(
-    135deg,
-    #8f00ff,
-    #ff0066);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:28px;
-
-    box-shadow:0 0 30px rgba(255,0,120,0.4);
+.key-box{
+    margin-bottom:25px;
 }
 
-/* Banner */
-
-.banner{
-    height:190px;
-    border-radius:30px;
-
-    background:
-    linear-gradient(
-    135deg,
-    #8f00ff,
-    #ff0066,
-    #111);
-
-    padding:26px;
-    margin-bottom:22px;
-
-    overflow:hidden;
-    position:relative;
+.key-box input{
+    width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:15px;
+    border:1px solid rgba(255,255,255,0.12);
 }
 
-.banner::before{
-    content:'';
-    position:absolute;
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.05);
-    top:-90px;
-    right:-90px;
-}
-
-.banner h2{
-    font-size:38px;
-    font-weight:900;
-    margin-bottom:10px;
-}
-
-.banner p{
-    color:#eee;
-    margin-bottom:8px;
-}
-
-.banner span{
-    color:#ffe600;
-    font-weight:bold;
-}
-
-/* Feature */
+/* FEATURES */
 
 .feature{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.05);
-
-    border-radius:24px;
-
-    padding:16px;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
-    margin-bottom:16px;
-
+    padding:18px;
+    margin-bottom:14px;
+    border-radius:22px;
+    background:rgba(255,255,255,0.05);
     transition:0.3s;
 }
 
 .feature:hover{
-    transform:translateY(-3px);
-
-    box-shadow:
-    0 0 25px rgba(170,0,255,0.25);
+    transform:scale(1.02);
+    background:rgba(255,255,255,0.08);
 }
 
-.left{
-    display:flex;
-    align-items:center;
-    gap:15px;
+.left h3{
+    font-size:16px;
+    margin-bottom:5px;
 }
 
-.icon{
-    width:62px;
-    height:62px;
-    border-radius:20px;
-
-    background:
-    linear-gradient(
-    135deg,
-    #8f00ff33,
-    #ff006633);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:28px;
+.left p{
+    font-size:12px;
+    color:#bbb;
 }
 
-.text h3{
-    font-size:18px;
-    margin-bottom:4px;
-}
+/* SWITCH */
 
-.text p{
-    color:#999;
-    font-size:13px;
-}
-
-/* Toggle */
-
-.toggle{
+.switch{
     width:58px;
-    height:30px;
-    background:#333;
-    border-radius:30px;
+    height:32px;
+    border-radius:20px;
+    background:#555;
     position:relative;
     cursor:pointer;
     transition:0.3s;
 }
 
-.toggle::before{
+.switch::before{
     content:'';
-    width:24px;
-    height:24px;
+    position:absolute;
+    width:26px;
+    height:26px;
     background:white;
     border-radius:50%;
-
-    position:absolute;
     top:3px;
-    left:4px;
-
+    left:3px;
     transition:0.3s;
 }
 
-.toggle.active{
-    background:
-    linear-gradient(
-    90deg,
-    #8f00ff,
-    #ff0066);
+.switch.active{
+    background:linear-gradient(90deg,#00d4ff,#7c3aed);
 }
 
-.toggle.active::before{
-    left:30px;
+.switch.active::before{
+    left:29px;
 }
 
-/* Button */
+/* BUTTON */
 
-.btn{
+.activate{
     width:100%;
-    height:60px;
-
+    padding:18px;
     border:none;
-    border-radius:24px;
-
-    margin-top:15px;
-
-    font-size:18px;
-    font-weight:bold;
+    border-radius:22px;
+    margin-top:20px;
+    font-size:17px;
+    font-weight:600;
     color:white;
-
+    background:linear-gradient(90deg,#00d4ff,#7c3aed);
     cursor:pointer;
-
-    background:
-    linear-gradient(
-    90deg,
-    #8f00ff,
-    #ff0066);
-
-    box-shadow:
-    0 0 25px rgba(170,0,255,0.4);
-
     transition:0.3s;
 }
 
-.btn:hover{
+.activate:hover{
     transform:scale(1.03);
+    box-shadow:0 0 25px #00d4ff88;
 }
 
-/* Status */
+/* PROGRESS */
+
+.loading{
+    margin-top:20px;
+    display:none;
+}
+
+.bar{
+    width:100%;
+    height:12px;
+    border-radius:20px;
+    overflow:hidden;
+    background:#222;
+}
+
+.progress{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#00d4ff,#7c3aed);
+    transition:3s linear;
+}
+
+/* STATUS */
 
 .status{
     text-align:center;
     margin-top:18px;
     color:#00ff99;
-    font-weight:bold;
-    display:none;
+    font-size:14px;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:20px;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#aaa;
 }
 
 </style>
@@ -323,202 +235,189 @@ body{
 
 <body>
 
-<div class="background">
+<div class="glow1"></div>
+<div class="glow2"></div>
 
-    <div class="circle circle1"></div>
+<div class="panel">
 
-    <div class="circle circle2"></div>
+    <div class="top">
 
-</div>
+        <div class="logo">iOS PANEL</div>
 
-<div class="container">
-
-    <!-- Header -->
-
-    <div class="header">
-
-        <div class="logo">
-            <h1>MOBICONFIG</h1>
-            <p>ULTRA X FREE FIRE MENU</p>
-        </div>
-
-        <div class="avatar">
-            🔥
+        <div class="online">
+            ● ONLINE
         </div>
 
     </div>
 
-    <!-- Banner -->
+    <!-- KEY -->
 
-    <div class="banner">
+    <div class="key-box">
 
-        <h2>OB53 ULTRA</h2>
-
-        <p>FREE FIRE PREMIUM EXPERIENCE</p>
-
-        <span>FAST • SMOOTH • ULTRA FPS</span>
+        <input type="password" id="key"
+        placeholder="Nhập key thiết bị">
 
     </div>
 
-    <!-- Feature -->
+    <!-- FEATURES -->
 
     <div class="feature">
 
         <div class="left">
-
-            <div class="icon">🎯</div>
-
-            <div class="text">
-                <h3>AIM BOOST</h3>
-                <p>Tăng hỗ trợ ngắm</p>
-            </div>
-
+            <h3>FPS BOOST</h3>
+            <p>Tối ưu hiệu năng hệ thống</p>
         </div>
 
-        <div class="toggle active"></div>
+        <div class="switch" onclick="toggle(this)"></div>
 
     </div>
 
     <div class="feature">
 
         <div class="left">
-
-            <div class="icon">🔥</div>
-
-            <div class="text">
-                <h3>HEADSHOT+</h3>
-                <p>Tăng độ chính xác</p>
-            </div>
-
+            <h3>HUD CUSTOM</h3>
+            <p>Tuỳ chỉnh giao diện gaming</p>
         </div>
 
-        <div class="toggle active"></div>
+        <div class="switch" onclick="toggle(this)"></div>
 
     </div>
 
     <div class="feature">
 
         <div class="left">
-
-            <div class="icon">⚡</div>
-
-            <div class="text">
-                <h3>FPS MAX</h3>
-                <p>Tối ưu hiệu năng</p>
-            </div>
-
+            <h3>AIM TRAINING</h3>
+            <p>Luyện phản xạ & crosshair</p>
         </div>
 
-        <div class="toggle active"></div>
+        <div class="switch" onclick="toggle(this)"></div>
 
     </div>
 
     <div class="feature">
 
         <div class="left">
-
-            <div class="icon">🎯</div>
-
-            <div class="text">
-                <h3>SENSI</h3>
-                <p>Nhẹ tâm & bám đầu</p>
-            </div>
-
+            <h3>LOW LATENCY</h3>
+            <p>Giảm delay mô phỏng</p>
         </div>
 
-        <div class="toggle active"></div>
+        <div class="switch" onclick="toggle(this)"></div>
 
     </div>
 
-    <div class="feature">
+    <!-- BUTTON -->
 
-        <div class="left">
+    <button class="activate" onclick="activateGame()">
 
-            <div class="icon">🚀</div>
+        KÍCH HOẠT VÀO GAME
 
-            <div class="text">
-                <h3>SPEED X</h3>
-                <p>Tăng tốc phản hồi</p>
-            </div>
-
-        </div>
-
-        <div class="toggle active"></div>
-
-    </div>
-
-    <!-- Button -->
-
-    <button class="btn" onclick="activateMenu()">
-        KÍCH HOẠT & VÀO GAME
     </button>
 
-    <!-- Status -->
+    <!-- LOADING -->
+
+    <div class="loading" id="loading">
+
+        <div class="bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+    </div>
+
+    <!-- STATUS -->
 
     <div class="status" id="status">
-        ✓ MENU ĐÃ KÍCH HOẠT THÀNH CÔNG
+        SYSTEM READY
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <span>DEVICE: IOS-2026</span>
+
+        <span id="ping">
+            PING: 22MS
+        </span>
+
     </div>
 
 </div>
 
-<!-- Sound Effects -->
+<!-- SOUND -->
 
 <audio id="clickSound">
-<source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_0d3f0f1e4f.mp3?filename=game-click-104721.mp3" type="audio/mp3">
+<source src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" type="audio/mpeg">
 </audio>
 
-<audio id="successSound">
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_401ef15f82.mp3?filename=success-fanfare-trumpets-6185.mp3" type="audio/mp3">
+<audio id="activeSound">
+<source src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-/* Sounds */
+/* SWITCH */
 
-const clickSound =
-document.getElementById("clickSound");
+function toggle(el){
 
-const successSound =
-document.getElementById("successSound");
+    el.classList.toggle("active");
 
-/* Toggle */
-
-const toggles =
-document.querySelectorAll(".toggle");
-
-toggles.forEach(toggle => {
-
-    toggle.addEventListener("click", () => {
-
-        toggle.classList.toggle("active");
-
-        clickSound.currentTime = 0;
-        clickSound.play();
-
-    });
-
-});
-
-/* Activate */
-
-function activateMenu(){
-
-    successSound.currentTime = 0;
-    successSound.play();
-
-    document.getElementById("status")
-    .style.display = "block";
-
-    setTimeout(() => {
-
-        alert("Đang mở Free Fire...");
-
-        window.location.href =
-        "https://ffshare.garena.com/";
-
-    }, 2200);
-
+    document.getElementById("clickSound").play();
 }
+
+/* ACTIVATE */
+
+function activateGame(){
+
+    const key = document.getElementById("key").value;
+
+    const status = document.getElementById("status");
+
+    const loading = document.getElementById("loading");
+
+    const progress = document.getElementById("progress");
+
+    if(key !== "IOSVIP2026"){
+
+        status.style.color = "red";
+
+        status.innerHTML = "KEY KHÔNG HỢP LỆ";
+
+        return;
+    }
+
+    document.getElementById("activeSound").play();
+
+    status.style.color = "#00ff99";
+
+    status.innerHTML = "ĐANG LIÊN KẾT VÀO GAME...";
+
+    loading.style.display = "block";
+
+    setTimeout(()=>{
+
+        progress.style.width = "100%";
+
+    },100);
+
+    setTimeout(()=>{
+
+        status.innerHTML = "LIÊN KẾT THÀNH CÔNG";
+
+        alert("Đã kích hoạt hệ thống!");
+
+    },3200);
+}
+
+/* RANDOM PING */
+
+setInterval(()=>{
+
+    let ping = Math.floor(Math.random()*20)+15;
+
+    document.getElementById("ping").innerHTML =
+    "PING: "+ping+"MS";
+
+},1500);
 
 </script>
 
