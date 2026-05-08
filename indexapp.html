@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<div class="switch"></div>
+</div>
+
+<div class="toggle">
+<span>PARTICLE EFFECT</span>
+<div class="switch"></div>
+</div>
+</div>
+
+<button onclick="connectServer()">KẾT NỐI MÁY CHỦ</button>
+<button onclick="openGame()">MỞ FREE FIRE</button>
+</div>
+
+<script>
+function activateKey(){
+const key = document.getElementById('keyInput').value.trim();
+
+if(!key){
+alert('Vui lòng nhập key');
+return;
+}
+
+const serverKeys = JSON.parse(localStorage.getItem('premium_server_keys')) || [];
+
+const found = serverKeys.find(item => item.key === key);
+
+if(!found){
+alert('Key không hợp lệ hoặc không tồn tại');
+return;
+}
+
+localStorage.setItem('premium_key',key);
+
+alert('PREMIUM ACTIVE');
+}
+
+function connectServer(){
+try{
+const serverKeys = JSON.parse(localStorage.getItem('premium_server_keys')) || [];
+alert('KẾT NỐI SERVER THÀNH CÔNG | TOTAL KEYS: ' + serverKeys.length);
+}catch(error){
+alert('Lỗi kết nối server');
+console.error(error);
+}
+}
+
+function openGame(){
+const key = localStorage.getItem('premium_key');
+
+if(!key){
+alert('Hãy kích hoạt key');
+return;
+}
+
+window.open('https://ff.garena.com','_blank');
+}
+
+window.onload = () => {
+const savedKey = localStorage.getItem('premium_key');
+
+if(savedKey){
+const keyInput = document.getElementById('keyInput');
+if(keyInput){
+keyInput.value = savedKey;
+}
+}
+};
+
+console.assert(typeof activateKey === 'function');
+console.assert(typeof connectServer === 'function');
+console.assert(typeof openGame === 'function');
+</script>
+
+</body>
+</html>
