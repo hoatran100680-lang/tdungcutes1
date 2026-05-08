@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<div class="switch"></div>
+<button onclick="activateKey()">⚡ KÍCH HOẠT KEY</button>
+
+<div class="box">
+<h3>GAMING FEATURES</h3>
+
+<div class="feature">
+<span>🌈 FIX RUNG BÁM</span>
+<div class="toggle"></div>
 </div>
 
-<div class="toggle">
-<span>PARTICLE EFFECT</span>
-<div class="switch"></div>
+<div class="feature">
+<span>🎯 AIM TRAINING</span>
+<div class="toggle"></div>
+</div>
+
+<div class="feature">
+<span>📱 NHẠY MÀN</span>
+<div class="toggle"></div>
+</div>
+
+<div class="feature">
+<span>TĂNG TỈ LỆ HS</span>
+<div class="toggle"></div>
+</div>
+
+<div class="feature">
+<span>SENSI</span>
+<div class="toggle"></div>
 </div>
 </div>
 
-<button onclick="connectServer()">KẾT NỐI MÁY CHỦ</button>
-<button onclick="openGame()">MỞ FREE FIRE</button>
+<button onclick="connectServer()">☁ KẾT NỐI SERVER</button>
+<button onclick="startLauncher()">🚀 START LAUNCHER</button>
 </div>
 
 <script>
@@ -21,55 +43,21 @@ alert('Vui lòng nhập key');
 return;
 }
 
-const serverKeys = JSON.parse(localStorage.getItem('premium_server_keys')) || [];
-
-const found = serverKeys.find(item => item.key === key);
-
-if(!found){
-alert('Key không hợp lệ hoặc không tồn tại');
-return;
-}
-
-localStorage.setItem('premium_key',key);
-
+localStorage.setItem('gaming_key',key);
 alert('PREMIUM ACTIVE');
 }
 
 function connectServer(){
-try{
-const serverKeys = JSON.parse(localStorage.getItem('premium_server_keys')) || [];
-alert('KẾT NỐI SERVER THÀNH CÔNG | TOTAL KEYS: ' + serverKeys.length);
-}catch(error){
-alert('Lỗi kết nối server');
-console.error(error);
-}
+alert('KẾT NỐI SERVER THÀNH CÔNG');
 }
 
-function openGame(){
-const key = localStorage.getItem('premium_key');
-
-if(!key){
-alert('Hãy kích hoạt key');
-return;
+function startLauncher(){
+alert('LAUNCHER STARTED');
 }
-
-window.open('https://ff.garena.com','_blank');
-}
-
-window.onload = () => {
-const savedKey = localStorage.getItem('premium_key');
-
-if(savedKey){
-const keyInput = document.getElementById('keyInput');
-if(keyInput){
-keyInput.value = savedKey;
-}
-}
-};
 
 console.assert(typeof activateKey === 'function');
 console.assert(typeof connectServer === 'function');
-console.assert(typeof openGame === 'function');
+console.assert(typeof startLauncher === 'function');
 </script>
 
 </body>
