@@ -4,230 +4,136 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>iOS Gaming Panel</title>
-
-<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>FF MENU KEY SYSTEM</title>
 
 <style>
 
-*{
+body{
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:'SF Pro Display',sans-serif;
-}
-
-body{
-    height:100vh;
-    overflow:hidden;
-    background:
-    linear-gradient(135deg,#0f172a,#020617);
+    background:#0d0d0d;
+    font-family:Arial;
     display:flex;
     justify-content:center;
     align-items:center;
-}
-
-/* BACKGROUND GLOW */
-
-.glow1,
-.glow2{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(90px);
-}
-
-.glow1{
-    width:300px;
-    height:300px;
-    background:#00d4ff55;
-    top:-50px;
-    left:-50px;
-}
-
-.glow2{
-    width:350px;
-    height:350px;
-    background:#7c3aed55;
-    bottom:-100px;
-    right:-100px;
-}
-
-/* PANEL */
-
-.panel{
-    position:relative;
-    width:420px;
-    padding:28px;
-    border-radius:35px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(22px);
-    border:1px solid rgba(255,255,255,0.15);
-    box-shadow:
-    0 0 40px rgba(0,212,255,0.15),
-    inset 0 0 20px rgba(255,255,255,0.05);
-    color:white;
-}
-
-/* TOP */
-
-.top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:700;
-    background:linear-gradient(90deg,#00d4ff,#7c3aed);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.online{
-    color:#00ff99;
-    font-size:14px;
-}
-
-/* INPUT */
-
-.key-box{
-    margin-bottom:25px;
-}
-
-.key-box input{
-    width:100%;
-    padding:16px;
-    border:none;
-    outline:none;
-    border-radius:18px;
-    background:rgba(255,255,255,0.08);
-    color:white;
-    font-size:15px;
-    border:1px solid rgba(255,255,255,0.12);
-}
-
-/* FEATURES */
-
-.feature{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px;
-    margin-bottom:14px;
-    border-radius:22px;
-    background:rgba(255,255,255,0.05);
-    transition:0.3s;
-}
-
-.feature:hover{
-    transform:scale(1.02);
-    background:rgba(255,255,255,0.08);
-}
-
-.left h3{
-    font-size:16px;
-    margin-bottom:5px;
-}
-
-.left p{
-    font-size:12px;
-    color:#bbb;
-}
-
-/* SWITCH */
-
-.switch{
-    width:58px;
-    height:32px;
-    border-radius:20px;
-    background:#555;
-    position:relative;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.switch::before{
-    content:'';
-    position:absolute;
-    width:26px;
-    height:26px;
-    background:white;
-    border-radius:50%;
-    top:3px;
-    left:3px;
-    transition:0.3s;
-}
-
-.switch.active{
-    background:linear-gradient(90deg,#00d4ff,#7c3aed);
-}
-
-.switch.active::before{
-    left:29px;
-}
-
-/* BUTTON */
-
-.activate{
-    width:100%;
-    padding:18px;
-    border:none;
-    border-radius:22px;
-    margin-top:20px;
-    font-size:17px;
-    font-weight:600;
-    color:white;
-    background:linear-gradient(90deg,#00d4ff,#7c3aed);
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.activate:hover{
-    transform:scale(1.03);
-    box-shadow:0 0 25px #00d4ff88;
-}
-
-/* PROGRESS */
-
-.loading{
-    margin-top:20px;
-    display:none;
-}
-
-.bar{
-    width:100%;
-    height:12px;
-    border-radius:20px;
+    height:100vh;
     overflow:hidden;
-    background:#222;
 }
 
-.progress{
-    width:0%;
-    height:100%;
-    background:linear-gradient(90deg,#00d4ff,#7c3aed);
-    transition:3s linear;
+.box{
+    width:340px;
+    background:#1a1a1a;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 0 25px red;
+    color:white;
 }
 
-/* STATUS */
+.title{
+    text-align:center;
+    font-size:28px;
+    color:#ff2e2e;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    background:#2b2b2b;
+    color:white;
+    margin-bottom:15px;
+    box-sizing:border-box;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:red;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#ff3c3c;
+}
 
 .status{
     text-align:center;
-    margin-top:18px;
-    color:#00ff99;
+    margin-top:15px;
     font-size:14px;
 }
 
-/* FOOTER */
-
-.footer{
+.menu{
+    display:none;
     margin-top:20px;
+}
+
+.feature{
+    background:#252525;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:12px;
     display:flex;
     justify-content:space-between;
-    font-size:13px;
-    color:#aaa;
+    align-items:center;
+}
+
+.switch{
+    position:relative;
+    width:50px;
+    height:25px;
+}
+
+.switch input{
+    display:none;
+}
+
+.slider{
+    position:absolute;
+    cursor:pointer;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#555;
+    transition:.4s;
+    border-radius:25px;
+}
+
+.slider:before{
+    position:absolute;
+    content:"";
+    height:19px;
+    width:19px;
+    left:3px;
+    bottom:3px;
+    background:white;
+    transition:.4s;
+    border-radius:50%;
+}
+
+input:checked + .slider{
+    background:red;
+}
+
+input:checked + .slider:before{
+    transform:translateX(24px);
+}
+
+.device{
+    font-size:12px;
+    color:#999;
+    margin-top:10px;
+    text-align:center;
+    word-break:break-all;
 }
 
 </style>
@@ -235,189 +141,181 @@ body{
 
 <body>
 
-<div class="glow1"></div>
-<div class="glow2"></div>
+<div class="box">
 
-<div class="panel">
-
-    <div class="top">
-
-        <div class="logo">iOS PANEL</div>
-
-        <div class="online">
-            ● ONLINE
-        </div>
-
+    <div class="title">
+        FF VIP MENU
     </div>
 
-    <!-- KEY -->
+    <input
+        type="text"
+        id="keyInput"
+        class="input"
+        placeholder="Nhập key..."
+    >
 
-    <div class="key-box">
-
-        <input type="password" id="key"
-        placeholder="Nhập key thiết bị">
-
-    </div>
-
-    <!-- FEATURES -->
-
-    <div class="feature">
-
-        <div class="left">
-            <h3>FPS BOOST</h3>
-            <p>Tối ưu hiệu năng hệ thống</p>
-        </div>
-
-        <div class="switch" onclick="toggle(this)"></div>
-
-    </div>
-
-    <div class="feature">
-
-        <div class="left">
-            <h3>HUD CUSTOM</h3>
-            <p>Tuỳ chỉnh giao diện gaming</p>
-        </div>
-
-        <div class="switch" onclick="toggle(this)"></div>
-
-    </div>
-
-    <div class="feature">
-
-        <div class="left">
-            <h3>AIM TRAINING</h3>
-            <p>Luyện phản xạ & crosshair</p>
-        </div>
-
-        <div class="switch" onclick="toggle(this)"></div>
-
-    </div>
-
-    <div class="feature">
-
-        <div class="left">
-            <h3>LOW LATENCY</h3>
-            <p>Giảm delay mô phỏng</p>
-        </div>
-
-        <div class="switch" onclick="toggle(this)"></div>
-
-    </div>
-
-    <!-- BUTTON -->
-
-    <button class="activate" onclick="activateGame()">
-
-        KÍCH HOẠT VÀO GAME
-
+    <button class="btn" onclick="loginKey()">
+        LOGIN KEY
     </button>
 
-    <!-- LOADING -->
+    <div class="status" id="status"></div>
 
-    <div class="loading" id="loading">
+    <div class="device" id="device"></div>
 
-        <div class="bar">
-            <div class="progress" id="progress"></div>
+    <div class="menu" id="menu">
+
+        <div class="feature">
+            AIMBOT
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
         </div>
 
-    </div>
+        <div class="feature">
+            AIM HEAD
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
 
-    <!-- STATUS -->
+        <div class="feature">
+            NO RECOIL
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
 
-    <div class="status" id="status">
-        SYSTEM READY
-    </div>
+        <div class="feature">
+            ESP LINE
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
 
-    <!-- FOOTER -->
-
-    <div class="footer">
-
-        <span>DEVICE: IOS-2026</span>
-
-        <span id="ping">
-            PING: 22MS
-        </span>
+        <div class="feature">
+            FAST SWITCH
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
 
     </div>
 
 </div>
 
-<!-- SOUND -->
-
-<audio id="clickSound">
-<source src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" type="audio/mpeg">
-</audio>
-
-<audio id="activeSound">
-<source src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3" type="audio/mpeg">
-</audio>
-
 <script>
 
-/* SWITCH */
+// ===== DEVICE ID =====
 
-function toggle(el){
+let deviceId = localStorage.getItem("deviceId");
 
-    el.classList.toggle("active");
+if(!deviceId){
 
-    document.getElementById("clickSound").play();
+    deviceId =
+        "DEV-" +
+        Math.random()
+        .toString(36)
+        .substring(2,12);
+
+    localStorage.setItem(
+        "deviceId",
+        deviceId
+    );
 }
 
-/* ACTIVATE */
+document.getElementById("device").innerHTML =
+"DEVICE ID:<br>" + deviceId;
 
-function activateGame(){
 
-    const key = document.getElementById("key").value;
+// ===== DATABASE DEMO =====
 
-    const status = document.getElementById("status");
+let keys = {
 
-    const loading = document.getElementById("loading");
+    "KEY-1DAY": {
+        device: null
+    },
 
-    const progress = document.getElementById("progress");
+    "KEY-7DAY": {
+        device: null
+    },
 
-    if(key !== "IOSVIP2026"){
+    "KEY-30DAY": {
+        device: null
+    },
+
+    "KEY-VIP": {
+        device: null
+    }
+
+};
+
+
+// ===== LOGIN =====
+
+function loginKey(){
+
+    let key =
+        document
+        .getElementById("keyInput")
+        .value;
+
+    let status =
+        document
+        .getElementById("status");
+
+    let menu =
+        document
+        .getElementById("menu");
+
+    if(!keys[key]){
+
+        status.innerHTML =
+        "❌ Key không tồn tại";
 
         status.style.color = "red";
-
-        status.innerHTML = "KEY KHÔNG HỢP LỆ";
 
         return;
     }
 
-    document.getElementById("activeSound").play();
+    // chưa có thiết bị
+    if(keys[key].device === null){
 
-    status.style.color = "#00ff99";
+        keys[key].device = deviceId;
 
-    status.innerHTML = "ĐANG LIÊN KẾT VÀO GAME...";
+        status.innerHTML =
+        "✅ Kích hoạt thành công";
 
-    loading.style.display = "block";
+        status.style.color = "lime";
 
-    setTimeout(()=>{
+        menu.style.display = "block";
 
-        progress.style.width = "100%";
+        return;
+    }
 
-    },100);
+    // đúng thiết bị
+    if(keys[key].device === deviceId){
 
-    setTimeout(()=>{
+        status.innerHTML =
+        "✅ Key hợp lệ";
 
-        status.innerHTML = "LIÊN KẾT THÀNH CÔNG";
+        status.style.color = "lime";
 
-        alert("Đã kích hoạt hệ thống!");
+        menu.style.display = "block";
 
-    },3200);
+        return;
+    }
+
+    // khác thiết bị
+    status.innerHTML =
+    "❌ Key đã dùng trên thiết bị khác";
+
+    status.style.color = "red";
 }
-
-/* RANDOM PING */
-
-setInterval(()=>{
-
-    let ping = Math.floor(Math.random()*20)+15;
-
-    document.getElementById("ping").innerHTML =
-    "PING: "+ping+"MS";
-
-},1500);
 
 </script>
 
