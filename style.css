@@ -1,0 +1,49 @@
+body{
+    background:#050505;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+    font-family:sans-serif;
+}
+
+.login-box{
+    width:320px;
+    background:#120408;
+    padding:30px;
+    border-radius:25px;
+    border:1px solid #ff2f62;
+    box-shadow:0 0 20px rgba(255,0,70,.4);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:15px;
+    margin-bottom:20px;
+    background:#220810;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:15px;
+    background:#ff2f62;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#status{
+    margin-top:15px;
+    text-align:center;
+}
