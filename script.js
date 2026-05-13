@@ -1,14 +1,28 @@
 // LOADING
 
-setTimeout(()=>{
-  document.getElementById("loadingScreen")
-  .style.display = "none";
-},2500);
+setTimeout(() => {
+    document.getElementById("loadingScreen")
+    .style.display = "none";
+}, 2500);
+
 
 // BOOST EFFECT
 
 function startBoost(){
 
-  let percent = 0;
+    let percent = 0;
 
-  let 
+    let interval = setInterval(() => {
+
+        percent++;
+
+        console.log(percent + "%");
+
+        if(percent >= 100){
+            clearInterval(interval);
+            alert("BOOST SUCCESS");
+        }
+
+    }, 50);
+
+}
