@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================================================================
     // 1. CẤU HÌNH BIẾN TOÀN CỤC & BỘ NHỚ TRÌNH DUYỆT (LOCALSTORAGE)
     // =========================================================================
-    const API_URL = "http://localhost:3000/api/verify";
+    const API_URL = " https://subplot-override-poking.ngrok-free.dev";
     const CIRCLE_CIRCUMFERENCE = 251.2;
     let selectedGame = "FREE FIRE";
 
