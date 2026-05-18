@@ -3,331 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexora X1 - Premium Dashboard</title>
+    <title>NEXORA V1.0 - XIN CHAO TAN DUNG</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
-<body>
+<body class="dark-theme">
+    <div class="phone-container">
+        
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo">N</div>
+            <div class="title-panel">
+                <h1>NEXORA V1.0 PRO</h1>
+                <p id="sub-title">XIN CHAO TAN DUNG</p>
+            </div>
+            <button id="theme-toggle-btn" title="Đổi giao diện">👁️‍🗨️</button>
+        </div>
 
-    <div class="app-container">
-        <!-- Vùng nội dung cuộn -->
-        <main class="content-area">
+        <!-- CÁC TAB NỘI DUNG -->
+        <div class="tab-content-container">
             
             <!-- TAB 1: TRANG CHỦ -->
-            <section id="tab-home" class="tab-content active">
-                <div class="header">
-                    <div class="brand">
-                        <span class="logo">N</span>
-                        <div>
-                            <h1>NEXORA X1</h1>
-                            <p class="subtitle">Premium Dashboard</p>
-                        </div>
-                    </div>
-                    <!-- Thời gian thực hiển thị góc trên cùng bên phải -->
-                    <div class="live-clock" id="clock-top">00:00:00</div>
+            <div id="tab-home" class="tab-panel active">
+                <div class="status-board">
+                    <div class="status-item"><span class="value dynamic-fps">90</span><span class="label">FPS</span></div>
+                    <div class="status-item"><span class="value" id="ping-val">18ms</span><span class="label">PING</span></div>
+                    <div class="status-item"><span class="value" id="temp-val">37°C</span><span class="label">NHIỆT ĐỘ</span></div>
+                    <div class="status-item"><span class="value">82%</span><span class="label">PIN</span></div>
                 </div>
 
-                <div class="welcome-box">
-                    <p>Xin chào, <strong>Tấn Dũng</strong> 👋</p>
-                    <span class="status-tag">Hệ thống sẵn sàng. Vui lòng kích hoạt tính năng.</span>
+                <div class="circle-radial">
+                    <div class="percent" id="performance-val">96%</div>
+                    <div class="desc">HIỆU NĂNG TỐI ƯU</div>
                 </div>
 
-                <h3 class="section-title">TÍNH NĂNG HỆ THỐNG</h3>
-                <div class="grid-2col">
-                    <div class="card toggle-card">
-                        <i class="fa-solid fa-crosshairs icon-red"></i>
-                        <div class="card-info">
-                            <h4>AIM LOCK</h4>
-                            <p>Khóa mục tiêu</p>
-                        </div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <i class="fa-solid fa-shield-halved icon-red"></i>
-                        <div class="card-info">
-                            <h4>STABILITY ASSIST</h4>
-                            <p>Tăng độ mượt</p>
-                        </div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <i class="fa-solid fa-eye icon-red"></i>
-                        <div class="card-info">
-                            <h4>AIM HOLD</h4>
-                            <p>Duy trì tâm ngắm</p>
-                        </div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <i class="fa-solid fa-lock icon-red"></i>
-                        <div class="card-info">
-                            <h4>AIM LOCKDOWN</h4>
-                            <p>Khóa khi di chuyển</p>
-                        </div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <i class="fa-solid fa-gauge-high icon-red"></i>
-                        <div class="card-info">
-                            <h4>SENSITIVITY</h4>
-                            <p>Tăng độ nhạy</p>
-                        </div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <i class="fa-solid fa-mobile-screen-button icon-red"></i>
-                        <div class="card-info">
-                            <h4>SCREEN BOOST</h4>
-                            <p>Tăng độ quét màn</p>
-                        </div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                </div>
+                <div class="section-title">TRẠNG THÁI KHẨN CẤP</div>
+                <div class="info-row"><span>Phiên bản Panel:</span><span class="highlight">X20 VVIP Pro</span></div>
+                <div class="info-row"><span>Hệ thống Anticheat:</span><span class="safe-status">BYPASS THÀNH CÔNG</span></div>
+            </div>
 
-                <h3 class="section-title">TỐI ƯU THIẾT BỊ</h3>
-                <div class="list-container">
-                    <div class="card toggle-card">
-                        <i class="fa-solid fa-microchip icon-red"></i>
-                        <div class="card-info">
-                            <h4>Dọn RAM tự động</h4>
-                            <p>Giải phóng bộ nhớ đệm liên tục</p>
-                        </div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+            <!-- TAB 2: GAMEPLAY (MENU CHEAT FREE FIRE VVIP) -->
+            <div id="tab-gameplay" class="tab-panel">
+                <div class="section-title">HỖ TRỢ CHIẾN ĐẤU (FREE FIRE VVIP)</div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="item-info"><span class="icon">🎯</span><div><p class="name">AIM ASSIST PRO</p><p class="desc">Tự động khóa tâm vào đầu</p></div></div>
+                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
                     </div>
-                    <div class="card toggle-card">
-                        <i class="fa-solid fa-temperature-arrow-down icon-red"></i>
-                        <div class="card-info">
-                            <h4>Giảm nhiệt CPU</h4>
-                            <p>Hạ nhiệt độ, ổn định hiệu năng</p>
-                        </div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="menu-item">
+                        <div class="item-info"><span class="icon">🔥</span><div><p class="name">NO RECOIL 100%</p><p class="desc">Giảm độ giật súng về tuyệt đối</p></div></div>
+                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
                     </div>
-                    <div class="card toggle-card">
-                        <i class="fa-solid fa-bolt icon-red"></i>
-                        <div class="card-info">
-                            <h4>Tăng tốc GPU</h4>
-                            <p>Tối ưu hóa khử răng cưa</p>
-                        </div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="menu-item">
+                        <div class="item-info"><span class="icon">👁️</span><div><p class="name">WALL HACK (ESP)</p><p class="desc">Hiện tên và khung xương địch xuyên tường</p></div></div>
+                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
                     </div>
-                </div>
-            </section>
-
-            <!-- TAB 2: GAMEPLAY -->
-            <section id="tab-gameplay" class="tab-content">
-                <div class="header-simple"><h2>GAMEPLAY</h2></div>
-                
-                <h3 class="section-title">HỖ TRỢ CHIẾN ĐẤU</h3>
-                <div class="list-container">
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>AIM ASSIST PRO</h4><p>Tự động hỗ trợ ngắm chuẩn xác</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="menu-item">
+                        <div class="item-info"><span class="icon">🔮</span><div><p class="name">MAGIC BULLET</p><p class="desc">Đạn tự bẻ đường truyền trúng mục tiêu</p></div></div>
+                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>HEADSHOT BOOST</h4><p>Tăng tỷ lệ chí mạng vào đầu</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="menu-item">
+                        <div class="item-info"><span class="icon">💥</span><div><p class="name">DAMAGE BOOST +25%</p><p class="desc">Tăng sát thương chí mạng súng</p></div></div>
+                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>FAST SWITCH</h4><p>Đổi vũ khí nhanh không trễ</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>NO RECOIL</h4><p>Triệt tiêu độ giật của súng</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>MAGIC BULLET</h4><p>Tăng bán kính trúng đích của đạn</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>WALL HACK (VISUAL)</h4><p>Hiển thị kẻ địch qua vật cản</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>ESP NAME</h4><p>Hiện thông tin/tên của đối thủ</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>DAMAGE BOOST</h4><p>Tối ưu hóa lượng sát thương đầu ra</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="menu-item">
+                        <div class="item-info"><span class="icon">🏃</span><div><p class="name">SPEED HACK X1.5</p><p class="desc">Tăng tốc độ di chuyển chạy bo nhanh</p></div></div>
+                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
                     </div>
                 </div>
-
-                <h3 class="section-title">CHẾ ĐỘ CHIẾN ĐẤU</h3>
-                <div class="list-container">
-                    <div class="card radio-card" data-radio="mode">
-                        <div class="card-info"><h4>Chế độ Cân bằng</h4><p>Cân bằng hiệu năng và đồ họa</p></div>
-                        <i class="fa-regular fa-circle radio-icon"></i>
-                    </div>
-                    <div class="card radio-card" data-radio="mode">
-                        <div class="card-info"><h4>Chế độ Hiệu năng</h4><p>Tối ưu FPS cao tối đa</p></div>
-                        <i class="fa-regular fa-circle radio-icon"></i>
-                    </div>
-                    <div class="card radio-card" data-radio="mode">
-                        <div class="card-info"><h4>Tăng độ đồ họa</h4><p>Tối ưu chất lượng hình ảnh sắc nét</p></div>
-                        <i class="fa-regular fa-circle radio-icon"></i>
-                    </div>
-                </div>
-            </section>
+            </div>
 
             <!-- TAB 3: TÍNH NĂNG -->
-            <section id="tab-features" class="tab-content">
-                <div class="header-simple"><h2>TÍNH NĂNG</h2></div>
-                
-                <h3 class="section-title">TÙY CHỈNH HỆ THỐNG</h3>
-                <div class="list-container">
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Tăng FPS</h4><p>Mở khóa giới hạn FPS của thiết bị</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+            <div id="tab-features" class="tab-panel">
+                <div class="section-title">TÙY CHỈNH ĐỘ NHẠY & CẢM ỨNG</div>
+                <div class="slider-box">
+                    <div class="slider-label"><span>ĐỘ NHẠY KÉO TÂM (DPI)</span><span id="dpi-num">800</span></div>
+                    <input type="range" min="400" max="1600" value="800" class="range-slider" id="dpi-slider">
+                </div>
+                <div class="slider-box">
+                    <div class="slider-label"><span>TỐC ĐỘ PHẢN HỒI GÓC NHÌN</span><span id="sens-num">100%</span></div>
+                    <input type="range" min="50" max="200" value="100" class="range-slider" id="sens-slider">
+                </div>
+
+                <div class="section-title">CẤU HÌNH HỆ THỐNG SÂU</div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="item-info"><span class="icon">⚡</span><div><p class="name">TOUCH BOOST</p><p class="desc">Giảm độ trễ cảm ứng màn hình</p></div></div>
+                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Touch Boost</h4><p>Tăng độ nhạy phản hồi cảm ứng</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="menu-item">
+                        <div class="item-info"><span class="icon">📺</span><div><p class="name">CHỐNG GIẬT MÀN HÌNH</p><p class="desc">Ổn định tầng số quét màn hình</p></div></div>
+                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Chống giật màn hình</h4><p>Giảm rách, lặp khung hình</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="menu-item">
+                        <div class="item-info"><span class="icon">🔊</span><div><p class="name">ÂM THANH HỆ THỐNG</p><p class="desc">Phát tiếng Click VIP khi tương tác</p></div></div>
+                        <label class="switch"><input type="checkbox" id="sound-effect-toggle" checked><span class="slider"></span></label>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Ẩn giao diện khi chơi</h4><p>Tự động ẩn bảng điều khiển</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                </div>
+            </div>
+
+            <!-- TAB 4: THỐNG KÊ (BIỂU ĐỒ REALTIME VIP CHẠY SỐ) -->
+            <div id="tab-stats" class="tab-panel">
+                <div class="section-title">BIỂU ĐỒ FPS REAL-TIME TỐI ƯU</div>
+                <div class="chart-wrapper">
+                    <div class="chart-header">
+                        <span class="fps-title">FPS TRUNG BÌNH</span>
+                        <span class="fps-live-badge"><span class="dynamic-fps">90</span> FPS</span>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Tự động dọn rác</h4><p>Dọn rác hệ thống định kỳ</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="chart-container" id="realtime-chart">
+                        <!-- Các cột đồ thị sẽ tự động nhảy cao thấp nhờ Javascript -->
+                        <div class="bar" style="height: 70%"></div>
+                        <div class="bar" style="height: 75%"></div>
+                        <div class="bar" style="height: 80%"></div>
+                        <div class="bar" style="height: 85%"></div>
+                        <div class="bar" style="height: 90%"></div>
+                        <div class="bar" style="height: 88%"></div>
+                        <div class="bar" style="height: 92%"></div>
+                        <div class="bar" style="height: 95%"></div>
                     </div>
                 </div>
 
-                <h3 class="section-title">TÙY CHỈNH GIAO DIỆN</h3>
-                <div class="list-container" style="gap:10px;">
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Dark Mode</h4><p>Giao diện nền tối tối ưu pin</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                <div class="section-title">THÔNG KÊ CHI TIẾT HỆ THỐNG VIP</div>
+                <div class="vip-stats-container">
+                    <div class="vip-stat-row">
+                        <span class="lbl">Tốc độ xử lý đa luồng:</span>
+                        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width: 89%;"></div></div>
+                        <span class="pct">89%</span>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Neon Effect</h4><p>Hiệu ứng neon phát quang đỏ</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="vip-stat-row">
+                        <span class="lbl">Độ ổn định mạng (Ping):</span>
+                        <div class="progress-bar-wrap"><div class="progress-bar-fill secure" style="width: 95%;"></div></div>
+                        <span class="pct">95%</span>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Hiệu ứng chuyển động</h4><p>Bật/tắt hoạt ảnh menu mượt</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-
-                    <div class="card custom-card">
-                        <div class="card-info"><h4>Âm thanh hệ thống</h4><p>Điều chỉnh âm lượng phản hồi</p></div>
-                        <div class="slider-container">
-                            <input type="range" min="0" max="100" value="0" class="range-slider">
-                            <span class="range-value">0%</span>
-                        </div>
+                    <div class="vip-stat-row">
+                        <span class="lbl">Hiệu suất tản nhiệt GPU:</span>
+                        <div class="progress-bar-wrap"><div class="progress-bar-fill cooling" style="width: 78%;"></div></div>
+                        <span class="pct">78%</span>
                     </div>
                 </div>
 
-                <h3 class="section-title">KHÁC</h3>
-                <div class="list-container">
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Tự động cập nhật</h4><p>Cập nhật tính năng mới tự động</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Sao lưu cài đặt</h4><p>Lưu cấu hình lên cloud</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TAB 4: THỐNG KÊ -->
-            <section id="tab-stats" class="tab-content">
-                <div class="header-simple"><h2>THỐNG KÊ</h2></div>
-                
-                <h3 class="section-title">HIỆU NĂNG THIẾT BỊ (THỜI GIAN THỰC)</h3>
+                <div class="section-title">CHIẾN TÍCH IN-GAME (FREE FIRE)</div>
                 <div class="stats-grid">
-                    <div class="stat-box"><h5>FPS Hiện tại</h5><p class="stat-num" id="live-fps">60</p><span>FPS</span></div>
-                    <div class="stat-box"><h5>Ping mạng</h5><p class="stat-num" id="live-ping">20</p><span>ms</span></div>
-                    <div class="stat-box"><h5>Nhiệt độ</h5><p class="stat-num" id="live-temp">38</p><span>°C</span></div>
-                    <div class="stat-box"><h5>Mức pin</h5><p class="stat-num" id="live-battery">100</p><span>%</span></div>
+                    <div class="stat-card"><p class="card-num">3,450</p><p class="card-label">Tổng Kills</p></div>
+                    <div class="stat-card"><p class="card-num" style="color: #ff002b;">64.2%</p><p class="card-label">Tỷ Lệ Headshot</p></div>
+                    <div class="stat-card"><p class="card-num">12 Trận</p><p class="card-label">Chuỗi Thắng</p></div>
+                    <div class="stat-card"><p class="card-num">Thách Đấu</p><p class="card-label">Bậc Hạng Hiện Tại</p></div>
                 </div>
-
-                <h3 class="section-title">THÔNG KÊ TỔNG HỢP</h3>
-                <div class="card status-info-card">
-                    <div class="info-row"><span><i class="fa-regular fa-clock"></i> Thời gian hệ thống chạy</span><strong id="live-runtime">00h 00m 00s</strong></div>
-                    <div class="info-row"><span><i class="fa-solid fa-calendar-days"></i> Hôm nay</span><strong id="live-date">01/01/2026</strong></div>
-                    <div class="info-row"><span><i class="fa-solid fa-bolt"></i> Số tiến trình đã chặn</span><strong id="live-blocked">0</strong></div>
-                    <div class="info-row"><span><i class="fa-solid fa-skull"></i> Khởi chạy ứng dụng</span><strong id="live-start-count">1 lần</strong></div>
-                </div>
-            </section>
+            </div>
 
             <!-- TAB 5: BOOST -->
-            <section id="tab-boost" class="tab-content">
-                <div class="header-simple"><h2>BOOST</h2></div>
-                
-                <div class="gauge-wrapper">
-                    <div class="gauge-chart" id="boost-gauge">
-                        <div class="gauge-inner">
-                            <span class="gauge-percent" id="gauge-txt">0%</span>
-                            <span class="gauge-label">TÌNH TRẠNG TỐI ƯU</span>
-                        </div>
-                    </div>
+            <div id="tab-boost" class="tab-panel">
+                <div class="section-title">TRUNG TÂM GIẢI PHÓNG PHẦN CỨNG</div>
+                <div class="boost-area">
+                    <button id="boost-btn">BOOST NGAY (XÓA LAG 100%)</button>
                 </div>
 
-                <button class="btn-boost-now" id="btnBoost"><i class="fa-solid fa-rocket"></i> BOOST NGAY</button>
-
-                <h3 class="section-title">TĂNG TỐC HIỆU NĂNG</h3>
-                <div class="list-container">
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Tối ưu hệ thống</h4><p>Tối ưu hóa toàn bộ hệ điều hành</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                <div class="section-title" style="margin-top: 25px;">CÔNG CỤ NÂNG CAO</div>
+                <div class="menu-list">
+                    <div class="menu-item action-row" id="clean-ram-btn">
+                        <div class="item-info"><span class="icon">🧹</span><div><p class="name">Dọn dẹp RAM Ngầm</p><p class="desc">Giải phóng ứng dụng chạy đè hệ thống</p></div></div>
+                        <span class="arrow-action">➔</span>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Ưu tiên hiệu năng</h4><p>Dành tài nguyên cao nhất cho tác vụ</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="menu-item action-row" id="cool-cpu-btn">
+                        <div class="item-info"><span class="icon">❄️</span><div><p class="name">Hạ nhiệt độ CPU</p><p class="desc">Giảm xung nhịp chống nóng máy khi sấy súng</p></div></div>
+                        <span class="arrow-action">➔</span>
                     </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Tắt ứng dụng nền</h4><p>Đóng triệt để các ứng dụng chạy ngầm</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Tăng tốc mạng</h4><p>Tối ưu hóa băng thông đường truyền</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
+                    <div class="menu-item action-row" id="dns-btn">
+                        <div class="item-info"><span class="icon">🌐</span><div><p class="name">Tối ưu hóa Ping DNS</p><p class="desc">Kết nối máy chủ liên hoàn giảm delay</p></div></div>
+                        <span class="arrow-action">➔</span>
                     </div>
                 </div>
+            </div>
 
-                <h3 class="section-title">CÔNG CỤ BOOST</h3>
-                <div class="list-container">
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Dọn RAM ngay</h4><p>Giải phóng bộ nhớ trống lập tức</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Làm mát thiết bị</h4><p>Hạ xung nhịp lúc nghỉ giảm nhiệt</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                    <div class="card toggle-card">
-                        <div class="card-info"><h4>Tăng tốc GPU</h4><p>Ép hiệu suất xử lý đồ họa</p></div>
-                        <label class="switch"><input type="checkbox" class="audio-switch"><span class="slider"></span></label>
-                    </div>
-                </div>
-            </section>
+        </div>
 
-        </main>
+        <!-- THANH ĐIỀU HƯỚNG TAB ĐÁY MÀN HÌNH -->
+        <div class="bottom-nav">
+            <button class="nav-item active" data-tab="tab-home">🏠<br>Trang chủ</button>
+            <button class="nav-item" data-tab="tab-gameplay">🎮<br>Gameplay</button>
+            <button class="nav-item" data-tab="tab-features">⚙️<br>Tính năng</button>
+            <button class="nav-item" data-tab="tab-stats">📊<br>Thống kê</button>
+            <button class="nav-item" data-tab="tab-boost">🚀<br>Tăng tốc</button>
+        </div>
 
-        <!-- Thanh Điều Hướng Đáy -->
-        <nav class="bottom-nav">
-            <button class="nav-item active" data-tab="tab-home">
-                <i class="fa-solid fa-house"></i><span>Trang chủ</span>
-            </button>
-            <button class="nav-item" data-tab="tab-gameplay">
-                <i class="fa-solid fa-gamepad"></i><span>Gameplay</span>
-            </button>
-            <button class="nav-item" data-tab="tab-features">
-                <i class="fa-solid fa-sliders"></i><span>Tính năng</span>
-            </button>
-            <button class="nav-item" data-tab="tab-stats">
-                <i class="fa-solid fa-chart-simple"></i><span>Thống kê</span>
-            </button>
-            <button class="nav-item" data-tab="tab-boost">
-                <i class="fa-solid fa-rocket"></i><span>Boost</span>
-            </button>
-        </nav>
     </div>
 
     <script src="script.js"></script>

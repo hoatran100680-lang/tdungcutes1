@@ -1,77 +1,128 @@
-document.addEventListener("DOMContentLoaded", function() {
+// Khởi tạo hệ thống Synth Audio Kỹ Thuật Số
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+// Hàm tạo âm thanh thông minh đa tần số
+function playSoundEffect(frequency = 500, duration = 0.08, type = 'sine', volume = 0.15) {
+    const soundToggle = document.getElementById('sound-effect-toggle');
+    if (soundToggle && !soundToggle.checked) return;
+
+    const o = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+
+    o.type = type;
+    o.frequency.setValueAtTime(frequency, audioCtx.currentTime);
     
-    // TÍNH NĂNG 1: CHUYỂN ĐỔI QUA LẠI GIỮA CÁC TAB MENU
-    const navItems = document.querySelectorAll(".nav-item");
-    const tabContents = document.querySelectorAll(".tab-content");
+    g.gain.setValueAtTime(volume, audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
 
-    navItems.forEach(item => {
-        item.addEventListener("click", function() {
-            // Xóa class active hiện tại của nút menu
-            document.querySelector(".nav-item.active").classList.remove("active");
-            // Thêm active vào nút vừa click
-            this.classList.add("active");
+    o.connect(g);
+    g.connect(audioCtx.destination);
 
-            // Ẩn tab cũ, hiển thị tab tương ứng mới
-            const targetTab = this.getAttribute("data-tab");
-            tabContents.forEach(tab => {
-                tab.classList.remove("active");
-                if(tab.id === targetTab) {
-                    tab.classList.add("active");
-                }
-            });
-        });
+    o.start();
+    o.stop(audioCtx.currentTime + duration);
+}
+
+// 1. CHUYỂN TAB CHỨC NĂNG VỚI ÂM THANH KHÁC BIỆT
+const navItems = document.querySelectorAll('.nav-item');
+navItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        if(item.classList.contains('active')) return;
+
+        // Tần số tăng dần theo từng ô tab từ trái qua phải (Tạo cảm giác lướt âm)
+        playSoundEffect(500 + (index * 80), 0.06, 'triangle', 0.12);
+
+        document.querySelector('.nav-item.active').classList.remove('active');
+        document.querySelector('.tab-panel.active').classList.remove('active');
+
+        item.classList.add('active');
+        const target = item.getAttribute('data-tab');
+        document.getElementById(target).classList.add('active');
     });
+});
 
-    // TÍNH NĂNG 2: ĐIỀU CHỈNH THANH TRƯỢT RANGE SLIDER
-    const rangeSlider = document.querySelector(".range-slider");
-    const rangeValue = document.querySelector(".range-value");
+// 2. CHUYỂN ĐỔI CÔNG TẮC (ON/OFF) - ÂM THANH KÉP NỐT CAO/TRẦM
+document.querySelectorAll('.switch input').forEach(toggle => {
+    toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+            // Âm thanh kích hoạt (Beep kép vui tai)
+            playSoundEffect(650, 0.04, 'sine');
+            setTimeout(() => playSoundEffect(950, 0.06, 'sine'), 40);
+        } else {
+            // Âm thanh hủy bỏ (Tắt âm đục)
+            playSoundEffect(350, 0.08, 'triangle');
+        }
+    });
+});
 
-    if (rangeSlider && rangeValue) {
-        rangeSlider.addEventListener("input", function() {
-            rangeValue.textContent = this.value + "%";
-        });
-    }
+// 3. ÂM THANH KHI KÉO CÀI ĐẶT SLIDER (THAY ĐỔI THEO GIÁ TRỊ)
+const dpiSlider = document.getElementById('dpi-slider');
+if(dpiSlider) {
+    dpiSlider.addEventListener('input', (e) => {
+        document.getElementById('dpi-num').innerText = e.target.value;
+        playSoundEffect(parseInt(e.target.value) / 2, 0.02, 'sine', 0.05);
+    });
+}
 
-    // TÍNH NĂNG 3: CHỌN CHẾ ĐỘ CHIẾN ĐẤU (RADIO BOXES)
-    const radioCards = document.querySelectorAll(".radio-card");
+const sensSlider = document.getElementById('sens-slider');
+if(sensSlider) {
+    sensSlider.addEventListener('input', (e) => {
+        document.getElementById('sens-num').innerText = e.target.value + "%";
+        playSoundEffect(parseInt(e.target.value) * 3, 0.02, 'sine', 0.05);
+    });
+}
+
+// 4. ĐỔI GIAO DIỆN MÀU ĐEN / SÁNG
+document.getElementById('theme-toggle-btn').addEventListener('click', () => {
+    playSoundEffect(250, 0.2, 'sawtooth', 0.08); 
+    const isDark = document.body.classList.contains('dark-theme');
     
-    radioCards.forEach(card => {
-        card.addEventListener("click", function() {
-            const groupName = this.getAttribute("data-radio");
-            
-            // Tắt các lựa chọn khác cùng nhóm
-            document.querySelectorAll(`.radio-card[data-radio="${groupName}"]`).forEach(c => {
-                c.classList.remove("active");
-                const icon = c.querySelector(".radio-icon");
-                icon.className = "fa-regular fa-circle radio-icon";
-            });
+    document.body.className = isDark ? 'light-theme' : 'dark-theme';
+    document.getElementById('sub-title').innerText = isDark ? "LIGHT FREE FIRE PANEL" : "ULTIMATE FREE FIRE PANEL";
+});
 
-            // Kích hoạt ô hiện tại
-            this.classList.add("active");
-            const activeIcon = this.querySelector(".radio-icon");
-            activeIcon.className = "fa-solid fa-circle-check radio-icon";
-        });
-    });
+// 5. CHỨC NĂNG XỬ LÝ BOOST SIÊU CẤP
+document.getElementById('boost-btn').addEventListener('click', (e) => {
+    playSoundEffect(800, 0.4, 'sawtooth', 0.1);
+    const btn = e.target;
+    btn.innerText = "ĐANG TỐI ƯU HOÀN HẢO...";
+    btn.disabled = true;
 
-    // TÍNH NĂNG 4: HIỆU ỨNG NHẤN NÚT "BOOST NGAY"
-    const btnBoost = document.getElementById("btnBoost");
-    if(btnBoost) {
-        btnBoost.addEventListener("click", function() {
-            this.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG TỐI ƯU...';
-            this.style.backgroundColor = "#990000";
+    setTimeout(() => {
+        playSoundEffect(1200, 0.2, 'sine', 0.2);
+        btn.innerText = "XÓA LAG 100% THÀNH CÔNG";
+        document.getElementById('fps-val').innerText = "120"; 
+        document.getElementById('ping-val').innerText = "4ms";  
+        document.getElementById('performance-val').innerText = "100%";
+        
+        setTimeout(() => {
+            btn.innerText = "BOOST NGAY (XÓA LAG 100%)";
+            btn.disabled = false;
+        }, 2000);
+    }, 1500);
+});
+
+// 6. CÁC NÚT TÍNH NĂNG NÂNG CAO DƯỚI TAB BOOST
+function handleActionRow(elementId, processText, successText, soundFreq) {
+    const el = document.getElementById(elementId);
+    if(!el) return;
+    el.addEventListener('click', () => {
+        playSoundEffect(soundFreq, 0.1, 'triangle');
+        const originalText = el.querySelector('.desc').innerText;
+        el.querySelector('.desc').innerText = processText;
+        el.style.pointerEvents = 'none';
+
+        setTimeout(() => {
+            playSoundEffect(soundFreq + 300, 0.15, 'sine');
+            el.querySelector('.desc').innerText = successText;
             
             setTimeout(() => {
-                this.innerHTML = '<i class="fa-solid fa-circle-check"></i> ĐÃ HOÀN THÀNH';
-                this.style.backgroundColor = "#00ff66";
-                this.style.boxShadow = "0 4px 15px rgba(0, 255, 102, 0.4)";
-                
-                // Trả về trạng thái cũ sau 2 giây
-                setTimeout(() => {
-                    this.innerHTML = '<i class="fa-solid fa-rocket"></i> BOOST NGAY';
-                    this.style.backgroundColor = "var(--accent-red)";
-                    this.style.boxShadow = "0 4px 15px var(--glow-red)";
-                }, 2000);
-            }, 1500);
-        });
-    }
-});
+                el.querySelector('.desc').innerText = originalText;
+                el.style.pointerEvents = 'auto';
+            }, 2000);
+        }, 1200);
+    });
+}
+
+handleActionRow('clean-ram-btn', 'Đang quét dọn RAM rác...', 'Đã giải phóng +2.4GB RAM!', 500);
+handleActionRow('cool-cpu-btn', 'Đang kích hoạt tản nhiệt chất lỏng...', 'Nhiệt độ CPU giảm 5°C!', 400);
+handleActionRow('dns-btn', 'Đang tối ưu DNS Google Gaming...', 'Ping ổn định ở mức 4ms!', 600);
