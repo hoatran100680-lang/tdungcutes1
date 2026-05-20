@@ -1,128 +1,160 @@
-// Khởi tạo hệ thống Synth Audio Kỹ Thuật Số
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+// ========================================================
+// 1. GIẢI PHÁP SỬA LỖI TRÌNH DUYỆT KHÔNG PHÁT ÂM THANH
+// Sử dụng AudioContext tạo sóng hình sin cơ học tức thời (Không lo lỗi file âm thanh)
+// ========================================================
+let isSoundEnabled = true;
 
-// Hàm tạo âm thanh thông minh đa tần số
-function playSoundEffect(frequency = 500, duration = 0.08, type = 'sine', volume = 0.15) {
-    const soundToggle = document.getElementById('sound-effect-toggle');
-    if (soundToggle && !soundToggle.checked) return;
+function playSystemSound(type) {
+    if (!isSoundEnabled) return;
 
-    const o = audioCtx.createOscillator();
-    const g = audioCtx.createGain();
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        
+        osc.connect(gain);
+        gain.connect(ctx.destination);
 
-    o.type = type;
-    o.frequency.setValueAtTime(frequency, audioCtx.currentTime);
-    
-    g.gain.setValueAtTime(volume, audioCtx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-
-    o.connect(g);
-    g.connect(audioCtx.destination);
-
-    o.start();
-    o.stop(audioCtx.currentTime + duration);
+        if (type === 'click') {
+            // Âm thanh tách click gọn gàng
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(580, ctx.currentTime);
+            gain.gain.setValueAtTime(0.2, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.05);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.05);
+        } else if (type === 'slide') {
+            // Âm thanh tạch nhỏ tần số cao khi rê thanh kéo
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(950, ctx.currentTime);
+            gain.gain.setValueAtTime(0.04, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.005, ctx.currentTime + 0.02);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.02);
+        }
+    } catch (e) {
+        console.log("Trình duyệt yêu cầu tương tác trước khi phát âm thanh.");
+    }
 }
 
-// 1. CHUYỂN TAB CHỨC NĂNG VỚI ÂM THANH KHÁC BIỆT
+// ========================================================
+// 2. ĐỒNG BỘ CHUYỂN ĐỔI CÁC TAB
+// ========================================================
 const navItems = document.querySelectorAll('.nav-item');
-navItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        if(item.classList.contains('active')) return;
+const tabPanels = document.querySelectorAll('.tab-panel');
 
-        // Tần số tăng dần theo từng ô tab từ trái qua phải (Tạo cảm giác lướt âm)
-        playSoundEffect(500 + (index * 80), 0.06, 'triangle', 0.12);
+navItems.forEach(item => {
+    item.addEventListener('click', function() {
+        navItems.forEach(nav => nav.classList.remove('active'));
+        tabPanels.forEach(panel => panel.classList.remove('active'));
 
-        document.querySelector('.nav-item.active').classList.remove('active');
-        document.querySelector('.tab-panel.active').classList.remove('active');
-
-        item.classList.add('active');
-        const target = item.getAttribute('data-tab');
-        document.getElementById(target).classList.add('active');
+        this.classList.add('active');
+        const targetTabId = this.getAttribute('data-tab');
+        const targetPanel = document.getElementById(targetTabId);
+        
+        if (targetPanel) {
+            targetPanel.classList.add('active');
+        }
+        playSystemSound('click');
     });
 });
 
-// 2. CHUYỂN ĐỔI CÔNG TẮC (ON/OFF) - ÂM THANH KÉP NỐT CAO/TRẦM
-document.querySelectorAll('.switch input').forEach(toggle => {
-    toggle.addEventListener('change', () => {
-        if (toggle.checked) {
-            // Âm thanh kích hoạt (Beep kép vui tai)
-            playSoundEffect(650, 0.04, 'sine');
-            setTimeout(() => playSoundEffect(950, 0.06, 'sine'), 40);
+// ========================================================
+// 3. ĐỒNG BỘ KÉO SLIDER VÀ TÍNH TOÁN CÔNG SUẤT TỔNG
+// ========================================================
+const sliders = document.querySelectorAll('.range-slider');
+const totalPercentText = document.getElementById('total-percent');
+const syncDesc = document.getElementById('sync-desc');
+let slideThrottle = false;
+
+sliders.forEach(slider => {
+    slider.addEventListener('input', function() {
+        const targetLabelId = this.getAttribute('data-target');
+        document.getElementById(targetLabelId).textContent = this.value + '%';
+
+        let sum = 0;
+        sliders.forEach(s => sum += parseInt(s.value));
+        let average = Math.round(sum / sliders.length);
+
+        totalPercentText.textContent = average + '%';
+        
+        if (average === 100) {
+            syncDesc.textContent = "Đồng bộ tối ưu hóa thành công";
+        } else if (average === 0) {
+            syncDesc.textContent = "Vui lòng điều chỉnh để đồng bộ hóa";
         } else {
-            // Âm thanh hủy bỏ (Tắt âm đục)
-            playSoundEffect(350, 0.08, 'triangle');
+            syncDesc.textContent = "Hệ thống đang điều chỉnh hiệu năng";
+        }
+
+        // Kiểm soát tần suất âm thanh khi kéo liên tục
+        if (!slideThrottle) {
+            playSystemSound('slide');
+            slideThrottle = true;
+            setTimeout(() => slideThrottle = false, 50);
         }
     });
 });
 
-// 3. ÂM THANH KHI KÉO CÀI ĐẶT SLIDER (THAY ĐỔI THEO GIÁ TRỊ)
-const dpiSlider = document.getElementById('dpi-slider');
-if(dpiSlider) {
-    dpiSlider.addEventListener('input', (e) => {
-        document.getElementById('dpi-num').innerText = e.target.value;
-        playSoundEffect(parseInt(e.target.value) / 2, 0.02, 'sine', 0.05);
-    });
-}
-
-const sensSlider = document.getElementById('sens-slider');
-if(sensSlider) {
-    sensSlider.addEventListener('input', (e) => {
-        document.getElementById('sens-num').innerText = e.target.value + "%";
-        playSoundEffect(parseInt(e.target.value) * 3, 0.02, 'sine', 0.05);
-    });
-}
-
-// 4. ĐỔI GIAO DIỆN MÀU ĐEN / SÁNG
-document.getElementById('theme-toggle-btn').addEventListener('click', () => {
-    playSoundEffect(250, 0.2, 'sawtooth', 0.08); 
-    const isDark = document.body.classList.contains('dark-theme');
-    
-    document.body.className = isDark ? 'light-theme' : 'dark-theme';
-    document.getElementById('sub-title').innerText = isDark ? "LIGHT FREE FIRE PANEL" : "ULTIMATE FREE FIRE PANEL";
+// Sự kiện phát âm thanh khi chạm đổi bất kỳ công tắc nào
+document.addEventListener('change', function(e) {
+    if (e.target && e.target.classList.contains('sound-switch')) {
+        playSystemSound('click');
+    }
 });
 
-// 5. CHỨC NĂNG XỬ LÝ BOOST SIÊU CẤP
-document.getElementById('boost-btn').addEventListener('click', (e) => {
-    playSoundEffect(800, 0.4, 'sawtooth', 0.1);
-    const btn = e.target;
-    btn.innerText = "ĐANG TỐI ƯU HOÀN HẢO...";
-    btn.disabled = true;
+// Công tắc quản lý âm thanh tổng
+document.getElementById('master-sound').addEventListener('change', function() {
+    isSoundEnabled = this.checked;
+    playSystemSound('click');
+});
+
+// ========================================================
+// 4. CHỨC NĂNG THAY ĐỔI MÀU SẮC GIAO DIỆN CHỦ ĐẠO
+// ========================================================
+const themeSelector = document.getElementById('theme-selector');
+const appContainer = document.getElementById('app-container');
+
+themeSelector.addEventListener('change', function() {
+    appContainer.setAttribute('data-theme', this.value);
+    playSystemSound('click');
+});
+
+// ========================================================
+// 5. CHỨC NĂNG DỌN DẸP RAM THÀNH CÔNG
+// ========================================================
+const btnCleanRam = document.getElementById('btn-clean-ram');
+const cleanToast = document.getElementById('clean-toast');
+
+btnCleanRam.addEventListener('click', function() {
+    playSystemSound('click');
+    btnCleanRam.textContent = "⏳ ĐANG QUÉT DỌN...";
+    btnCleanRam.disabled = true;
 
     setTimeout(() => {
-        playSoundEffect(1200, 0.2, 'sine', 0.2);
-        btn.innerText = "XÓA LAG 100% THÀNH CÔNG";
-        document.getElementById('fps-val').innerText = "120"; 
-        document.getElementById('ping-val').innerText = "4ms";  
-        document.getElementById('performance-val').innerText = "100%";
+        // Đưa thông số hiển thị RAM về mức tối thiểu
+        document.getElementById('live-ram').textContent = "112 MB";
+        ramPoints = Array(maxPoints).fill(15); // Đẩy đồ thị RAM xuống đáy thấp
         
+        btnCleanRam.textContent = "🧹 DỌN DẸP BỘ NHỚ ĐỆM RAM";
+        btnCleanRam.disabled = false;
+        
+        // Hiện thông báo popup thành công
+        cleanToast.style.display = 'block';
         setTimeout(() => {
-            btn.innerText = "BOOST NGAY (XÓA LAG 100%)";
-            btn.disabled = false;
-        }, 2000);
-    }, 1500);
+            cleanToast.style.display = 'none';
+        }, 2500);
+    }, 1200);
 });
 
-// 6. CÁC NÚT TÍNH NĂNG NÂNG CAO DƯỚI TAB BOOST
-function handleActionRow(elementId, processText, successText, soundFreq) {
-    const el = document.getElementById(elementId);
-    if(!el) return;
-    el.addEventListener('click', () => {
-        playSoundEffect(soundFreq, 0.1, 'triangle');
-        const originalText = el.querySelector('.desc').innerText;
-        el.querySelector('.desc').innerText = processText;
-        el.style.pointerEvents = 'none';
+// ========================================================
+// 6. VẼ HAI ĐỒ THỊ SÓNG LIVE REALTIME SÁT THỰC TẾ
+// ========================================================
+const cpuCanvas = document.getElementById('cpuChart');
+const ramCanvas = document.getElementById('ramChart');
+const cpuCtx = cpuCanvas.getContext('2d');
+const ramCtx = ramCanvas.getContext('2d');
 
-        setTimeout(() => {
-            playSoundEffect(soundFreq + 300, 0.15, 'sine');
-            el.querySelector('.desc').innerText = successText;
-            
-            setTimeout(() => {
-                el.querySelector('.desc').innerText = originalText;
-                el.style.pointerEvents = 'auto';
-            }, 2000);
-        }, 1200);
-    });
-}
-
-handleActionRow('clean-ram-btn', 'Đang quét dọn RAM rác...', 'Đã giải phóng +2.4GB RAM!', 500);
-handleActionRow('cool-cpu-btn', 'Đang kích hoạt tản nhiệt chất lỏng...', 'Nhiệt độ CPU giảm 5°C!', 400);
-handleActionRow('dns-btn', 'Đang tối ưu DNS Google Gaming...', 'Ping ổn định ở mức 4ms!', 600);
+const maxPoints = 4

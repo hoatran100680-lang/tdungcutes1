@@ -3,188 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXORA V1.0 - XIN CHAO TAN DUNG</title>
+    <title>NOXUS V3 Ultimate Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
-    <div class="phone-container">
-        
-        <!-- HEADER -->
-        <div class="header">
-            <div class="logo">N</div>
-            <div class="title-panel">
-                <h1>NEXORA V1.0 PRO</h1>
-                <p id="sub-title">XIN CHAO TAN DUNG</p>
-            </div>
-            <button id="theme-toggle-btn" title="Đổi giao diện">👁️‍🗨️</button>
-        </div>
+<body>
 
-        <!-- CÁC TAB NỘI DUNG -->
-        <div class="tab-content-container">
+    <div class="phone-container" id="app-container" data-theme="red">
+        <!-- HEADER CHUNG -->
+        <header class="header">
+            <p class="subtitle">PREMIUM MOBILE DASHBOARD</p>
+            <h1 class="title">UCHIHA V3</h1>
+        </header>
+
+        <!-- NỘI DUNG CHÍNH -->
+        <main class="main-content">
             
-            <!-- TAB 1: TRANG CHỦ -->
-            <div id="tab-home" class="tab-panel active">
-                <div class="status-board">
-                    <div class="status-item"><span class="value dynamic-fps">90</span><span class="label">FPS</span></div>
-                    <div class="status-item"><span class="value" id="ping-val">18ms</span><span class="label">PING</span></div>
-                    <div class="status-item"><span class="value" id="temp-val">37°C</span><span class="label">NHIỆT ĐỘ</span></div>
-                    <div class="status-item"><span class="value">82%</span><span class="label">PIN</span></div>
+            <!-- TAB 1: HOME -->
+            <section id="tab-home" class="tab-panel active">
+                <div class="profile-card">
+                    <div class="avatar">TD</div>
+                    <div class="profile-info">
+                        <h3>Tấn Dũng</h3>
+                        <p>Developer / Admin</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <button class="btn-social">Facebook</button>
+                    <button class="btn-social">Zalo</button>
+                </div>
+                <div class="app-info-list">
+                    <p class="section-title">THÔNG TIN HỆ THỐNG</p>
+                    <div class="info-row"><span>Tên phần mềm</span><span class="highlight">NOXUS V3</span></div>
+                    <div class="info-row"><span>Phiên bản nâng cấp</span><span class="theme-text">Ultimate 2026</span></div>
+                    <div class="info-row"><span>Trạng thái kết nối</span><span class="green-text">Đã liên kết dữ liệu</span></div>
+                    <div class="info-row"><span>Game áp dụng</span><span>Free Fire & FF MAX</span></div>
+                    <div class="info-row"><span>Quản trị viên</span><span>Tấn Dũng </span></div>
+                </div>
+            </section>
+
+            <!-- TAB 2: FUNC (TẤT CẢ ĐỀU TẮT MẶC ĐỊNH) -->
+            <section id="tab-func" class="tab-panel">
+                <p class="section-title">SYSTEM FUNCTION VIP (07)</p>
+                
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>AIMLOCK <span class="badge">01</span></h4>
+                        <p>Bám đầu thông minh - AI tự động căn ngắm mục tiêu</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
                 </div>
 
-                <div class="circle-radial">
-                    <div class="percent" id="performance-val">96%</div>
-                    <div class="desc">HIỆU NĂNG TỐI ƯU</div>
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>STABILITY ASSIST <span class="badge">02</span></h4>
+                        <p>Nhẹ tâm - Ổn định đường đạn, giảm độ lệch tâm ngắm</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
                 </div>
 
-                <div class="section-title">TRẠNG THÁI KHẨN CẤP</div>
-                <div class="info-row"><span>Phiên bản Panel:</span><span class="highlight">X20 VVIP Pro</span></div>
-                <div class="info-row"><span>Hệ thống Anticheat:</span><span class="safe-status">BYPASS THÀNH CÔNG</span></div>
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>AIM HOLD <span class="badge">03</span></h4>
+                        <p>Ghim tâm cố định - Khóa mục tiêu khi đứng yên bắn</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>AIM LOCKDOWN <span class="badge">04</span></h4>
+                        <p>Đầm tâm nâng cao - Khóa chặt hồng tâm vùng ngực và đầu</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>SENSITIVITY BOOSTER <span class="badge">05</span></h4>
+                        <p>Gia tốc cảm ứng - Tăng tốc độ phản hồi vuốt màn hình</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>SCREEN BOOSTER <span class="badge">06</span></h4>
+                        <p>Độ nét đồ họa - Tăng tương phản và chi tiết quét màn</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>HEADSHOT FIX <span class="badge">07</span></h4>
+                        <p>Sửa sai số kéo tâm - Tối ưu hóa tỷ lệ bắn trúng đầu</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- TAB 3: BOOST -->
+            <section id="tab-boost" class="tab-panel">
+                <p class="section-title">FREE FIRE BOOSTER OPTIONS</p>
+                
+                <div class="boost-item">
+                    <div class="boost-info"><span>01 AIMLOCK BOOSTER</span><span class="boost-val" id="val-1">0%</span></div>
+                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-1">
+                </div>
+
+                <div class="boost-item">
+                    <div class="boost-info"><span>02 STABILITY ASSIST</span><span class="boost-val" id="val-2">0%</span></div>
+                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-2">
+                </div>
+
+                <div class="boost-item">
+                    <div class="boost-info"><span>03 AIM HOLD FORCING</span><span class="boost-val" id="val-3">0%</span></div>
+                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-3">
+                </div>
+
+                <div class="boost-item">
+                    <div class="boost-info"><span>04 HEADSHOT CALIBRATION</span><span class="boost-val" id="val-4">0%</span></div>
+                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-4">
+                </div>
+
+                <div class="boost-item">
+                    <div class="boost-info"><span>05 BULLET ALIGNMENT</span><span class="boost-val" id="val-5">0%</span></div>
+                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-5">
+                </div>
+
+                <div class="sync-container">
+                    <div class="progress-circle"><span id="total-percent">0%</span></div>
+                    <div class="sync-status">
+                        <p>CÔNG SUẤT TỔNG</p>
+                        <span id="sync-desc">Vui lòng điều chỉnh để đồng bộ hóa</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: LIVE (HOÀN THIỆN BIỂU ĐỒ) -->
+            <section id="tab-live" class="tab-panel">
+                <p class="section-title">REALTIME MONITOR & HARDWARE</p>
+                
+                <div class="live-grid">
+                    <div class="live-card"><h5>FPS HIỆN TẠI</h5><p id="live-fps">60</p></div>
+                    <div class="live-card"><h5>DUNG LƯỢNG RAM</h5><p id="live-ram">190 MB</p></div>
+                </div>
+
+                <!-- Nút dọn dẹp RAM -->
+                <button class="btn-clean" id="btn-clean-ram">🧹 DỌN DẸP BỘ NHỚ ĐỆM RAM</button>
+                <div class="toast-success" id="clean-toast">Đã giải phóng bộ nhớ RAM thành công!</div>
+
+                <div class="chart-container">
+                    <p class="chart-title">CPU (Ước Lượng Theo Thời Gian Bận Mỗi Frame)</p>
+                    <canvas id="cpuChart" width="335" height="110"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <p class="chart-title">RAM (MB) / Heap Used</p>
+                    <canvas id="ramChart" width="335" height="110"></canvas>
+                </div>
+            </section>
+
+            <!-- TAB 5: CÀI ĐẶT (Đổi màu & Nhiều tính năng hơn) -->
+            <section id="tab-settings" class="tab-panel">
+                <p class="section-title">TÙY CHỈNH HỆ THỐNG GIAO DIỆN</p>
+                
+                <p class="section-title">CẤU HÌNH GIAO DIỆN</p>
+                <div class="setting-row-select">
+                    <div class="setting-left">
+                        <span class="dot-icon">🎨</span>
+                        <div>
+                            <h4>Chế độ màu sắc</h4>
+                            <p>Thay đổi màu Neon chủ đạo</p>
+                        </div>
+                    </div>
+                    <select class="custom-select" id="theme-selector">
+                        <option value="red">Đỏ Neon</option>
+                        <option value="blue">Xanh Dương</option>
+                        <option value="green">Xanh Lá</option>
+                    </select>
+                </div>
+
+                <p class="section-title">HÀNH VI & ÂM THANH</p>
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>Hiệu ứng âm thanh</h4>
+                        <p>Bật/tắt âm thanh khi bấm và kéo thanh trượt</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="master-sound" checked>
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>Chế độ chống lag nền</h4>
+                        <p>Tự động tối ưu hóa khi vào trận đấu kịch tính</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>Lớp bảo vệ Anti-Ban</h4>
+                        <p>Chế độ ẩn danh mã hóa luồng dữ liệu game</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+
+                <div class="func-item">
+                    <div class="func-text">
+                        <h4>Chạy ngầm ẩn danh</h4>
+                        <p>Giấu ứng dụng khỏi thanh trạng thái thiết bị</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="sound-switch">
+                        <span class="slider-round"></span>
+                    </label>
+                </div>
+            </section>
+        </main>
+
+        <!-- THANH ĐIỀU HƯỚNG BÊN DƯỚI -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" data-tab="tab-home">
+                <span class="nav-icon">🏠</span><span class="nav-label">Home</span>
             </div>
-
-            <!-- TAB 2: GAMEPLAY (MENU CHEAT FREE FIRE VVIP) -->
-            <div id="tab-gameplay" class="tab-panel">
-                <div class="section-title">HỖ TRỢ CHIẾN ĐẤU (FREE FIRE VVIP)</div>
-                <div class="menu-list">
-                    <div class="menu-item">
-                        <div class="item-info"><span class="icon">🎯</span><div><p class="name">AIM ASSIST PRO</p><p class="desc">Tự động khóa tâm vào đầu</p></div></div>
-                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info"><span class="icon">🔥</span><div><p class="name">NO RECOIL 100%</p><p class="desc">Giảm độ giật súng về tuyệt đối</p></div></div>
-                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info"><span class="icon">👁️</span><div><p class="name">WALL HACK (ESP)</p><p class="desc">Hiện tên và khung xương địch xuyên tường</p></div></div>
-                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info"><span class="icon">🔮</span><div><p class="name">MAGIC BULLET</p><p class="desc">Đạn tự bẻ đường truyền trúng mục tiêu</p></div></div>
-                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info"><span class="icon">💥</span><div><p class="name">DAMAGE BOOST +25%</p><p class="desc">Tăng sát thương chí mạng súng</p></div></div>
-                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info"><span class="icon">🏃</span><div><p class="name">SPEED HACK X1.5</p><p class="desc">Tăng tốc độ di chuyển chạy bo nhanh</p></div></div>
-                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
-                    </div>
-                </div>
+            <div class="nav-item" data-tab="tab-func">
+                <span class="nav-icon">🎛️</span><span class="nav-label">Func</span>
             </div>
-
-            <!-- TAB 3: TÍNH NĂNG -->
-            <div id="tab-features" class="tab-panel">
-                <div class="section-title">TÙY CHỈNH ĐỘ NHẠY & CẢM ỨNG</div>
-                <div class="slider-box">
-                    <div class="slider-label"><span>ĐỘ NHẠY KÉO TÂM (DPI)</span><span id="dpi-num">800</span></div>
-                    <input type="range" min="400" max="1600" value="800" class="range-slider" id="dpi-slider">
-                </div>
-                <div class="slider-box">
-                    <div class="slider-label"><span>TỐC ĐỘ PHẢN HỒI GÓC NHÌN</span><span id="sens-num">100%</span></div>
-                    <input type="range" min="50" max="200" value="100" class="range-slider" id="sens-slider">
-                </div>
-
-                <div class="section-title">CẤU HÌNH HỆ THỐNG SÂU</div>
-                <div class="menu-list">
-                    <div class="menu-item">
-                        <div class="item-info"><span class="icon">⚡</span><div><p class="name">TOUCH BOOST</p><p class="desc">Giảm độ trễ cảm ứng màn hình</p></div></div>
-                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info"><span class="icon">📺</span><div><p class="name">CHỐNG GIẬT MÀN HÌNH</p><p class="desc">Ổn định tầng số quét màn hình</p></div></div>
-                        <label class="switch"><input type="checkbox" class="cheat-toggle"><span class="slider"></span></label>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info"><span class="icon">🔊</span><div><p class="name">ÂM THANH HỆ THỐNG</p><p class="desc">Phát tiếng Click VIP khi tương tác</p></div></div>
-                        <label class="switch"><input type="checkbox" id="sound-effect-toggle" checked><span class="slider"></span></label>
-                    </div>
-                </div>
+            <div class="nav-item" data-tab="tab-boost">
+                <span class="nav-icon">⚡</span><span class="nav-label">Boost</span>
             </div>
-
-            <!-- TAB 4: THỐNG KÊ (BIỂU ĐỒ REALTIME VIP CHẠY SỐ) -->
-            <div id="tab-stats" class="tab-panel">
-                <div class="section-title">BIỂU ĐỒ FPS REAL-TIME TỐI ƯU</div>
-                <div class="chart-wrapper">
-                    <div class="chart-header">
-                        <span class="fps-title">FPS TRUNG BÌNH</span>
-                        <span class="fps-live-badge"><span class="dynamic-fps">90</span> FPS</span>
-                    </div>
-                    <div class="chart-container" id="realtime-chart">
-                        <!-- Các cột đồ thị sẽ tự động nhảy cao thấp nhờ Javascript -->
-                        <div class="bar" style="height: 70%"></div>
-                        <div class="bar" style="height: 75%"></div>
-                        <div class="bar" style="height: 80%"></div>
-                        <div class="bar" style="height: 85%"></div>
-                        <div class="bar" style="height: 90%"></div>
-                        <div class="bar" style="height: 88%"></div>
-                        <div class="bar" style="height: 92%"></div>
-                        <div class="bar" style="height: 95%"></div>
-                    </div>
-                </div>
-
-                <div class="section-title">THÔNG KÊ CHI TIẾT HỆ THỐNG VIP</div>
-                <div class="vip-stats-container">
-                    <div class="vip-stat-row">
-                        <span class="lbl">Tốc độ xử lý đa luồng:</span>
-                        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width: 89%;"></div></div>
-                        <span class="pct">89%</span>
-                    </div>
-                    <div class="vip-stat-row">
-                        <span class="lbl">Độ ổn định mạng (Ping):</span>
-                        <div class="progress-bar-wrap"><div class="progress-bar-fill secure" style="width: 95%;"></div></div>
-                        <span class="pct">95%</span>
-                    </div>
-                    <div class="vip-stat-row">
-                        <span class="lbl">Hiệu suất tản nhiệt GPU:</span>
-                        <div class="progress-bar-wrap"><div class="progress-bar-fill cooling" style="width: 78%;"></div></div>
-                        <span class="pct">78%</span>
-                    </div>
-                </div>
-
-                <div class="section-title">CHIẾN TÍCH IN-GAME (FREE FIRE)</div>
-                <div class="stats-grid">
-                    <div class="stat-card"><p class="card-num">3,450</p><p class="card-label">Tổng Kills</p></div>
-                    <div class="stat-card"><p class="card-num" style="color: #ff002b;">64.2%</p><p class="card-label">Tỷ Lệ Headshot</p></div>
-                    <div class="stat-card"><p class="card-num">12 Trận</p><p class="card-label">Chuỗi Thắng</p></div>
-                    <div class="stat-card"><p class="card-num">Thách Đấu</p><p class="card-label">Bậc Hạng Hiện Tại</p></div>
-                </div>
+            <div class="nav-item" data-tab="tab-live">
+                <span class="nav-icon">📊</span><span class="nav-label">Live</span>
             </div>
-
-            <!-- TAB 5: BOOST -->
-            <div id="tab-boost" class="tab-panel">
-                <div class="section-title">TRUNG TÂM GIẢI PHÓNG PHẦN CỨNG</div>
-                <div class="boost-area">
-                    <button id="boost-btn">BOOST NGAY (XÓA LAG 100%)</button>
-                </div>
-
-                <div class="section-title" style="margin-top: 25px;">CÔNG CỤ NÂNG CAO</div>
-                <div class="menu-list">
-                    <div class="menu-item action-row" id="clean-ram-btn">
-                        <div class="item-info"><span class="icon">🧹</span><div><p class="name">Dọn dẹp RAM Ngầm</p><p class="desc">Giải phóng ứng dụng chạy đè hệ thống</p></div></div>
-                        <span class="arrow-action">➔</span>
-                    </div>
-                    <div class="menu-item action-row" id="cool-cpu-btn">
-                        <div class="item-info"><span class="icon">❄️</span><div><p class="name">Hạ nhiệt độ CPU</p><p class="desc">Giảm xung nhịp chống nóng máy khi sấy súng</p></div></div>
-                        <span class="arrow-action">➔</span>
-                    </div>
-                    <div class="menu-item action-row" id="dns-btn">
-                        <div class="item-info"><span class="icon">🌐</span><div><p class="name">Tối ưu hóa Ping DNS</p><p class="desc">Kết nối máy chủ liên hoàn giảm delay</p></div></div>
-                        <span class="arrow-action">➔</span>
-                    </div>
-                </div>
+            <div class="nav-item" data-tab="tab-settings">
+                <span class="nav-icon">⚙️</span><span class="nav-label">Cài đặt</span>
             </div>
-
-        </div>
-
-        <!-- THANH ĐIỀU HƯỚNG TAB ĐÁY MÀN HÌNH -->
-        <div class="bottom-nav">
-            <button class="nav-item active" data-tab="tab-home">🏠<br>Trang chủ</button>
-            <button class="nav-item" data-tab="tab-gameplay">🎮<br>Gameplay</button>
-            <button class="nav-item" data-tab="tab-features">⚙️<br>Tính năng</button>
-            <button class="nav-item" data-tab="tab-stats">📊<br>Thống kê</button>
-            <button class="nav-item" data-tab="tab-boost">🚀<br>Tăng tốc</button>
-        </div>
-
+        </nav>
     </div>
 
     <script src="script.js"></script>
