@@ -2,276 +2,267 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOXUS V3 Ultimate Premium</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta name="theme-color" content="#02010a">
+
+    <title>For Linh — Our Little Universe ❤️</title>
+
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
-    <div class="phone-container" id="app-container" data-theme="red">
-        <!-- HEADER CHUNG -->
-        <header class="header">
-            <p class="subtitle">PREMIUM MOBILE DASHBOARD</p>
-            <h1 class="title">NOXUS V3</h1>
-        </header>
+    <!-- =====================================================
+         CANVAS VŨ TRỤ + TRÁI TIM 3D
+    ====================================================== -->
 
-        <!-- NỘI DUNG CHÍNH -->
-        <main class="main-content">
-            
-            <!-- TAB 1: HOME -->
-            <section id="tab-home" class="tab-panel active">
-                <div class="profile-card">
-                    <div class="avatar">TD</div>
-                    <div class="profile-info">
-                        <h3>Tấn Dũng</h3>
-                        <p>Developer / Admin</p>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <button class="btn-social">Facebook</button>
-                    <button class="btn-social">Zalo</button>
-                </div>
-                <div class="app-info-list">
-                    <p class="section-title">THÔNG TIN HỆ THỐNG</p>
-                    <div class="info-row"><span>Tên phần mềm</span><span class="highlight">NOXUS V3</span></div>
-                    <div class="info-row"><span>Phiên bản nâng cấp</span><span class="theme-text">Ultimate 2026</span></div>
-                    <div class="info-row"><span>Trạng thái kết nối</span><span class="green-text">Đã liên kết dữ liệu</span></div>
-                    <div class="info-row"><span>Game áp dụng</span><span>Free Fire & FF MAX</span></div>
-                    <div class="info-row"><span>Quản trị viên</span><span>Tấn Dũng </span></div>
-                </div>
-            </section>
+    <canvas id="canvas"></canvas>
 
-            <!-- TAB 2: FUNC (TẤT CẢ ĐỀU TẮT MẶC ĐỊNH) -->
-            <section id="tab-func" class="tab-panel">
-                <p class="section-title">SYSTEM FUNCTION VIP (07)</p>
-                
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>AIMLOCK <span class="badge">01</span></h4>
-                        <p>Bám đầu thông minh - AI tự động căn ngắm mục tiêu</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
 
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>STABILITY ASSIST <span class="badge">02</span></h4>
-                        <p>Nhẹ tâm - Ổn định đường đạn, giảm độ lệch tâm ngắm</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
 
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>AIM HOLD <span class="badge">03</span></h4>
-                        <p>Ghim tâm cố định - Khóa mục tiêu khi đứng yên bắn</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
+    <section id="loginLayer">
 
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>AIM LOCKDOWN <span class="badge">04</span></h4>
-                        <p>Đầm tâm nâng cao - Khóa chặt hồng tâm vùng ngực và đầu</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
+        <div class="login-card">
 
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>SENSITIVITY BOOSTER <span class="badge">05</span></h4>
-                        <p>Gia tốc cảm ứng - Tăng tốc độ phản hồi vuốt màn hình</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
-
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>SCREEN BOOSTER <span class="badge">06</span></h4>
-                        <p>Độ nét đồ họa - Tăng tương phản và chi tiết quét màn</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
-
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>HEADSHOT FIX <span class="badge">07</span></h4>
-                        <p>Sửa sai số kéo tâm - Tối ưu hóa tỷ lệ bắn trúng đầu</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
-            </section>
-
-            <!-- TAB 3: BOOST -->
-            <section id="tab-boost" class="tab-panel">
-                <p class="section-title">FREE FIRE BOOSTER OPTIONS</p>
-                
-                <div class="boost-item">
-                    <div class="boost-info"><span>01 AIMLOCK BOOSTER</span><span class="boost-val" id="val-1">0%</span></div>
-                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-1">
-                </div>
-
-                <div class="boost-item">
-                    <div class="boost-info"><span>02 STABILITY ASSIST</span><span class="boost-val" id="val-2">0%</span></div>
-                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-2">
-                </div>
-
-                <div class="boost-item">
-                    <div class="boost-info"><span>03 AIM HOLD FORCING</span><span class="boost-val" id="val-3">0%</span></div>
-                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-3">
-                </div>
-
-                <div class="boost-item">
-                    <div class="boost-info"><span>04 HEADSHOT CALIBRATION</span><span class="boost-val" id="val-4">0%</span></div>
-                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-4">
-                </div>
-
-                <div class="boost-item">
-                    <div class="boost-info"><span>05 BULLET ALIGNMENT</span><span class="boost-val" id="val-5">0%</span></div>
-                    <input type="range" class="range-slider" min="0" max="100" value="0" data-target="val-5">
-                </div>
-
-                <div class="sync-container">
-                    <div class="progress-circle"><span id="total-percent">0%</span></div>
-                    <div class="sync-status">
-                        <p>CÔNG SUẤT TỔNG</p>
-                        <span id="sync-desc">Vui lòng điều chỉnh để đồng bộ hóa</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TAB 4: LIVE (HOÀN THIỆN BIỂU ĐỒ) -->
-            <section id="tab-live" class="tab-panel">
-                <p class="section-title">REALTIME MONITOR & HARDWARE</p>
-                
-                <div class="live-grid">
-                    <div class="live-card"><h5>FPS HIỆN TẠI</h5><p id="live-fps">60</p></div>
-                    <div class="live-card"><h5>DUNG LƯỢNG RAM</h5><p id="live-ram">190 MB</p></div>
-                </div>
-
-                <!-- Nút dọn dẹp RAM -->
-                <button class="btn-clean" id="btn-clean-ram">🧹 DỌN DẸP BỘ NHỚ ĐỆM RAM</button>
-                <div class="toast-success" id="clean-toast">Đã giải phóng bộ nhớ RAM thành công!</div>
-
-                <div class="chart-container">
-                    <p class="chart-title">CPU (Ước Lượng Theo Thời Gian Bận Mỗi Frame)</p>
-                    <canvas id="cpuChart" width="335" height="110"></canvas>
-                </div>
-
-                <div class="chart-container">
-                    <p class="chart-title">RAM (MB) / Heap Used</p>
-                    <canvas id="ramChart" width="335" height="110"></canvas>
-                </div>
-            </section>
-
-            <!-- TAB 5: CÀI ĐẶT (Đổi màu & Nhiều tính năng hơn) -->
-            <section id="tab-settings" class="tab-panel">
-                <p class="section-title">TÙY CHỈNH HỆ THỐNG GIAO DIỆN</p>
-                
-                <p class="section-title">CẤU HÌNH GIAO DIỆN</p>
-                <div class="setting-row-select">
-                    <div class="setting-left">
-                        <span class="dot-icon">🎨</span>
-                        <div>
-                            <h4>Chế độ màu sắc</h4>
-                            <p>Thay đổi màu Neon chủ đạo</p>
-                        </div>
-                    </div>
-                    <select class="custom-select" id="theme-selector">
-                        <option value="red">Đỏ Neon</option>
-                        <option value="blue">Xanh Dương</option>
-                        <option value="green">Xanh Lá</option>
-                    </select>
-                </div>
-
-                <p class="section-title">HÀNH VI & ÂM THANH</p>
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>Hiệu ứng âm thanh</h4>
-                        <p>Bật/tắt âm thanh khi bấm và kéo thanh trượt</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" id="master-sound" checked>
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
-
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>Chế độ chống lag nền</h4>
-                        <p>Tự động tối ưu hóa khi vào trận đấu kịch tính</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
-
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>Lớp bảo vệ Anti-Ban</h4>
-                        <p>Chế độ ẩn danh mã hóa luồng dữ liệu game</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
-
-                <div class="func-item">
-                    <div class="func-text">
-                        <h4>Chạy ngầm ẩn danh</h4>
-                        <p>Giấu ứng dụng khỏi thanh trạng thái thiết bị</p>
-                    </div>
-                    <label class="switch">
-                        <input type="checkbox" class="sound-switch">
-                        <span class="slider-round"></span>
-                    </label>
-                </div>
-            </section>
-        </main>
-
-        <!-- THANH ĐIỀU HƯỚNG BÊN DƯỚI -->
-        <nav class="bottom-nav">
-            <div class="nav-item active" data-tab="tab-home">
-                <span class="nav-icon">🏠</span><span class="nav-label">Home</span>
+            <div class="login-ring">
+                <span>♥</span>
             </div>
-            <div class="nav-item" data-tab="tab-func">
-                <span class="nav-icon">🎛️</span><span class="nav-label">Func</span>
+
+            <div class="login-eyebrow">
+                ✦ PRIVATE UNIVERSE ✦
             </div>
-            <div class="nav-item" data-tab="tab-boost">
-                <span class="nav-icon">⚡</span><span class="nav-label">Boost</span>
+
+            <h1>
+                Xin chào em
+                <span>❤️</span>
+            </h1>
+
+            <p>
+                Có một thế giới nhỏ đang chờ em mở cửa.
+            </p>
+
+            <div class="password-box">
+
+                <input
+                    id="passwordInput"
+                    type="password"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    maxlength="8"
+                    placeholder="Nhập mật mã..."
+                >
+
+                <button
+                    id="togglePassword"
+                    type="button"
+                    aria-label="Hiện mật mã"
+                >
+                    ◉
+                </button>
+
             </div>
-            <div class="nav-item" data-tab="tab-live">
-                <span class="nav-icon">📊</span><span class="nav-label">Live</span>
+
+            <button
+                id="loginBtn"
+                class="unlock-btn"
+                type="button"
+            >
+                <span>MỞ KHÓA</span>
+                <b>♥</b>
+            </button>
+
+            <div
+                id="loginMessage"
+                class="login-message"
+            ></div>
+
+            <div class="login-hint">
+                ✦ Gợi ý: một ngày đặc biệt ✦
             </div>
-            <div class="nav-item" data-tab="tab-settings">
-                <span class="nav-icon">⚙️</span><span class="nav-label">Cài đặt</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+    ====================================================== -->
+
+    <main id="intro">
+
+        <div class="intro-content">
+
+            <div class="eyebrow">
+                ✦ OUR LITTLE UNIVERSE ✦
             </div>
-        </nav>
+
+            <div class="mini-orbit">
+
+                <div class="orbit-dot"></div>
+
+                <span>♥</span>
+
+            </div>
+
+            <h2>
+                Một thế giới nhỏ
+                <strong>dành cho em</strong>
+            </h2>
+
+            <p>
+                Có một điều anh muốn gửi đến em...
+            </p>
+
+
+            <!-- NÚT GAME -->
+
+            <button
+                id="openBtn"
+                class="open-btn"
+                type="button"
+            >
+
+                <span class="button-heart">
+                    ♥
+                </span>
+
+                <span id="buttonText">
+                    MỞ LÁ THƯ
+                </span>
+
+            </button>
+
+
+            <div
+                id="gameStatus"
+                class="game-status"
+            >
+                Bắt được nút này 10 lần rồi anh sẽ cho em xem thư ❤️
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         HUD
+    ====================================================== -->
+
+    <div
+        id="universeHud"
+        class="universe-hud"
+    >
+
+        <span class="hud-heart">
+            ♥
+        </span>
+
+        <span>
+            OUR LITTLE UNIVERSE
+        </span>
+
     </div>
 
-    <script src="script.js"></script>
+
+    <!-- =====================================================
+         LETTER
+    ====================================================== -->
+
+    <section
+        id="letterLayer"
+        aria-hidden="true"
+    >
+
+        <div
+            id="letterBackdrop"
+            class="letter-backdrop"
+        ></div>
+
+        <article class="letter-card">
+
+            <button
+                id="closeLetter"
+                class="close-letter"
+                type="button"
+                aria-label="Đóng thư"
+            >
+                ×
+            </button>
+
+
+            <div class="letter-stars">
+                ✦　✧　♥　✧　✦
+            </div>
+
+
+            <div class="letter-small-title">
+                ✦ FOR YOU ✦
+            </div>
+
+
+            <div class="letter-heart">
+                ♥
+            </div>
+
+
+            <h2>
+                Gửi người đặc biệt
+                <span>của anh</span>
+            </h2>
+
+
+            <div class="letter-name">
+                LINH ❤️
+            </div>
+
+
+            <div class="letter-divider">
+                <span></span>
+                ♥
+                <span></span>
+            </div>
+
+
+            <div
+                id="letterContent"
+                class="letter-content"
+            ></div>
+
+
+            <div class="letter-footer">
+
+                <div class="footer-line"></div>
+
+                <p>
+                    Với tất cả sự chân thành
+                </p>
+
+                <strong>
+                    Dũng
+                </strong>
+
+                <div class="forever">
+                    ∞ ALWAYS ∞
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <script src="./script.js"></script>
+
 </body>
 </html>
